@@ -1,0 +1,161 @@
+<style>
+  
+  .card-body{
+    overflow-y: auto;
+  }
+  
+  p {
+    color: black;
+  }
+
+  h5 {
+    color: black;
+  }
+
+  h6 {
+    color: black;
+  }
+
+  p {
+    color: black;
+  }
+
+  .bubble {
+    position: absolute;
+    box-shadow: 0px 5px 13px 0px rgba(170, 119, 56, 0.6) inset;
+    border-radius: 50%;
+    background: -webkit-radial-gradient(center ellipse, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 64%);
+    background: -o-radial-gradient(center ellipse, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 64%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 64%);
+    border-radius: 50%;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+  }
+
+  
+</style>
+
+<div class='container-fluid' id='mainbody'>
+  <div class='row animationwrapper'>
+    <div class='col-md-3 col-sm-12'>
+      <br><br><br><br>
+      <div class="card" id='idcard'>
+        <div class="card-body">
+          <h5 class="card-title" id='beername'>{{beer.name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted" id='beersubtitle'>{{beer.tagline}}</h6>
+          <p class="card-text" id='beerabv'>{{beer.abv}} percent ABV.</p>
+          <p class="card-text" id='beeribu'>{{beer.ibu}} IBUs</p>
+          <p class="card-text" id="beerebc" value="{{beer.ebc}}">{{beer.ebc}} EBC</p>
+          <a href="#" id="addLink" data="{{beer.id}}"class="card-link">Add to Favorites</a>
+        </div>
+      </div>
+    </div>
+    <br><br><br><br>
+    <div class='col-md-6 col-sm-12' id="containerbeer">
+      {{!-- <div class="tap"></div> --}}
+      <div class="glass">
+        <div class="beer" id='beerbody'></div>
+      </div>
+      <div class="pour"></div>
+    </div>
+    <div class='col-md-3 col-sm-12'>
+      <div class="card" id='datacard'>
+        <div class="card-body">
+          <h5 class="card-title">Information:</h5>
+          <p class="card-text" id='beertext'>{{beer.description}}</p>
+          <p class="card-text" id='beerorigin'>First Brewed {{beer.first_brewed}}</p>
+        </div>
+      </div>
+    </div>
+    <br><br>
+  </div>
+</div>
+
+<script>
+
+  $(function () {
+    function bubbles() {
+      var mainTl = new TimelineMax({ paused:false});
+
+        var parentHeight = $('.beer').height()
+        var parentWidth = $('.beer').width();
+
+        $('.beer').append(new Array(150).join('<div class="bubble" />'));
+
+        $(".bubble").each(function (i, bubble) {
+            animateBubble(bubble);
+        });
+
+        function animateBubble(bubble) {
+            var bubble = $(bubble);
+            var bubbleHeight = bubble.height();
+            var tl = new TimelineMax();
+            tl
+                .set(bubble, { y: function (index) { return (index + parentHeight * 1)}, scale: random(0.1, 0.2), x: random(1, 250), rotation: random(0, 360) })
+                .to(bubble, 1, { x: "+=10", yoyo: true, repeat: 10, ease: Sine.easeInOut }, random(0, 30))
+                .to(bubble, random(2, 30), { rotation: '+=360', y: String(-bubbleHeight), onComplete: animateBubble, onCompleteParams: [bubble] }, 0);
+            return tl;
+        }
+        function random(min, max) {
+            if (max == null) { max = min; min = 0; }
+            return Math.random() * (max - min) + min;
+        }
+    }
+    function beerColor() {
+    var EBC = $("#beerebc").attr("value");
+      if (EBC <= 11) {
+        $('.beer').css("background", "linear-gradient(white, rgb(184, 123, 28, .95),rgb(184, 123, 28, .95),rgb(184, 123, 28, .95), rgb(184, 123, 28, .95),rgb(184, 123, 28, .95))");
+        $('.pour').css("background", "linear-gradient(rgb(184, 123, 28), rgb(184, 123, 28),white)");
+      }
+      else if ((EBC > 11) && (EBC <= 19)) {
+        $('.beer').css("background", "linear-gradient(white, 	rgb(191, 136, 21, .95), 	rgb(191, 136, 21, .95), 	rgb(191, 136, 21, .95), 	rgb(191, 136, 21, .95),	rgb(191, 136, 21, .95))");
+        $('.pour').css("background", "linear-gradient(	rgb(191, 136, 21, .95), 	rgb(191, 136, 21, .95), white)");
+      }
+      else if ((EBC >= 20) && (EBC <= 28)) {
+        $('.beer').css("background", "linear-gradient(white, 	rgb(114, 46, 24, .95),	rgb(114, 46, 24),	rgb(114, 46, 24), 	rgb(114, 46, 24),	rgb(114, 46, 24))");
+        $('.pour').css("background", "linear-gradient(	rgb(114, 46, 24), 	rgb(114, 46, 24),white)");
+      }
+      else if ((EBC > 28) && (EBC <=36)) {
+        $('.beer').css("background", "linear-gradient(white,rgb(55, 30, 17, .95),rgb(55, 30, 17, .95),rgb(55, 30, 17, .95),rgb(55, 30, 17, .95),rgb(55, 12, 30, .95))");
+        $('.pour').css("background", "linear-gradient(#4b0c11,rgb(55, 12, 17), white)");
+      }
+      else if (EBC > 36){
+        $('.beer').css("background", "linear-gradient(white, rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), rgb(21, 9, 1, 1))");
+        $('.pour').css("background", "linear-gradient(rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), white)");
+    };
+    };
+    function rotation() {
+      $('.glass').addClass('rotate');
+    }
+
+    function reverseRotation(){
+      $('.glass').addClass('rotateback');
+    }
+    function beerPourTimed() {
+      setTimeout(function () {
+        $('.pour').addClass('pouring');
+      }, 400);
+      beerColor();
+      beerRise();
+    }
+    function beerRise() {
+      rotation();
+      $('.beer').addClass('fill');
+      $('.head').addClass('active');
+    }
+    function pourBeer() {
+      beerPourTimed();
+      setTimeout(function () {
+        $('.pour').addClass('end');
+        reverseRotation();
+      }, 1500);
+    }
+    setTimeout(function () {
+      pourBeer();
+      bubbles();
+    }, 0);
+  });
+
+
+</script>

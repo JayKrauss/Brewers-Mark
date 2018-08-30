@@ -1,0 +1,97 @@
+ /* Remove the navbar's default margin-bottom and rounded borders */ 
+ .navbar {
+    margin-top: 10px;
+    margin-bottom: 0;
+    border-radius: 0;
+    height: 100%;
+  }
+  
+  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  .row.content {height: 840px}
+  
+  /* Set gray background color and 100% height */
+  .sidenav {
+    padding-top: 20px;
+    background-color:grey;
+    height: 100%;
+    border-left: 5px black solid;
+    border-right: 5px black solid;
+  }
+  
+  /* Set black background color, white text and some padding */
+  footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+    border-left: 5px black solid;
+    border-right: 5px black solid;
+  }
+  
+  /* On small screens, set height to 'auto' for sidenav and grid */
+  @media screen and (max-width: 767px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+    .row.content {height:auto;} 
+  }
+
+  #bodydiv {
+    height: 100%;
+}
+
+body {
+    background: url('/assets/images/barbackground1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  h2 {
+    font-family: 'Shadows Into Light', cursive;
+  }
+  
+  #matches {
+    height: 400px;
+  }
+  
+  #nav, .footerlink {
+    position: relative;
+    bottom: 0px;
+  }
+  
+  .btn {
+    margin: 3px;
+  }
+  
+  #login-panel{
+    background-color: rgb(0, 0, 0, 0.00);
+  
+  }
+  .table{
+    margin: auto;
+  }
+  
+  td, th {
+    color: white;
+  }
+  #favorites-list{
+    background: url('/assets/images/chalkboard.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 5px black solid;
+  }
+  .logo{
+    border-radius: 75%;
+    height: 300px;
+    width: 300px;
+  }
+
+  #favscont {
+      width: 80%;
+  }

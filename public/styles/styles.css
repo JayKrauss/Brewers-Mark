@@ -1,0 +1,63 @@
+*{
+  text-align: center;
+}
+
+.list-group-item {
+  line-height: 2.5;
+}
+
+body {
+  background: url('/assets/images/barbackground1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+}
+
+#mainbody{
+  max-height:1080px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+h2 {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+#matches {
+  height: 400px;
+}
+
+#nav, .footerlink {
+  position: relative;
+  bottom: 0px;
+}
+
+.btn {
+  margin: 3px;
+}
+
+#login-panel{
+  background-color: rgb(0, 0, 0, 0.00);
+
+}
+.table{
+  margin: auto;
+}
+
+td, th {
+  color: white;
+}
+#favorites-list{
+  background: url('/assets/images/chalkboard.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 5px black solid;
+}
+.logo{
+  border-radius: 75%;
+  height: 300px;
+  width: 300px;
+}
