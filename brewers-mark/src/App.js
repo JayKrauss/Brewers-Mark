@@ -7,7 +7,9 @@ import Glass from './components/BeerDisplay/beerdisplay.js'
 class App extends Component {
   render() {
     return(
+      <div>
     <Glass />
+    </div>
     )
   }
 }

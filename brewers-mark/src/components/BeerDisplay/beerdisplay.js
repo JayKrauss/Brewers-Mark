@@ -3,7 +3,7 @@ import pourBeer from './manipulation/pourbeer.js'
 
 const Glass = () =>  {
       return(
-<div id='cover'>
+<div>
   <br /><br /><br /><br /><br />
       <div id="containerbeer">
         <div id="glass">
