@@ -1,0 +1,19 @@
+#wcbackground {
+    width: auto;
+    height: auto;
+    background-image: url('../../assets/images/chalkboard.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: solid black 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 10%;
+}
+
+.wcp{
+    color:white;
+}
+
+#wch2{
+    color:white;
+}

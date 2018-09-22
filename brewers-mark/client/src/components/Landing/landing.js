@@ -2,7 +2,7 @@ import React from 'react';
 import './landing.css';
 
 const Landing = () => (
-    <div id='main'>
+    <div id='landmain'>
         <div>
         <form class="clearfix mb-4" action="POST">
             <div class="form-group">

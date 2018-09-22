@@ -1,7 +1,8 @@
-#main{
+#landmain{
     height:auto;
     width:60%;
     margin-left: auto;
     margin-right: auto ;
-    margin-top: 5%
+    margin-top: 5%;
+    /* background-color: black; */
 }
