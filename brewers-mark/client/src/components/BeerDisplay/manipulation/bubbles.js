@@ -1,12 +1,14 @@
 import React from 'react';
+import $ from 'jquery'; 
+import {TimelineMax, Sine} from 'gsap';
 
 const bubbles = () => {
     var mainTl = new TimelineMax({ paused:false});
 
-      var parentHeight = $('.beer').height()
-      var parentWidth = $('.beer').width();
+      var parentHeight = $('#beer').height()
+      var parentWidth = $('#beer').width();
 
-      $('.beer').append(new Array(150).join('<div class="bubble" />'));
+      $('#beer').append(new Array(150).join('<div class="bubble" />'));
 
       $(".bubble").each(function (i, bubble) {
           animateBubble(bubble);

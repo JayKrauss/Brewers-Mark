@@ -5,7 +5,7 @@ import BrewersCask from './brewer.js'
 class BrewerNav extends Component {
 
     state = {
-      brewers: [{title:'Stone', href:'link1'}, {title:'Strangeways',href:'link2'}, {title:'Garden Grove',href:'link3'}, {title:'The Veil',href:'link4'}],
+      brewers: [{title:'IPA', href:'link1'}, {title:'Lager',href:'link2'}, {title:'Ale',href:'link3'}, {title:'Stout',href:'link4'}],
     };
   
     render() {

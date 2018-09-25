@@ -1,30 +1,33 @@
 import React from "react";
 import Nav from "./components/Nav";
 import Landing from './components/Landing/landing.js';
-import Logo from './components/Logo/logo.js'
 import BrewerNav from './components/Brewer/caskexport.js'
 import WelcomeChalkboard from './components/WelcomeChalkboard/welcomechalkboard.js'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+import Glass from './components/BeerDisplay/beerdisplay.js'
 import './app.css';
 
 const App = () => (
   <div id='display'>
   {/* <div id='nav'>
     <Nav />
-  </div> */}
-  <div>
   <br />
+  </div> */}
     <div id='brewernav'>
     <center>
-      <BrewerNav />
+      {/* <BrewerNav /> */}
       </center>
-      <br /><br />
+      <br />
     </div>
-    <div class='row'>
-    <div class='col-3'><WelcomeChalkboard /></div>
-    <div class='col-5'><Landing /></div>
-    <div class='col-2'></div>
+    <div className='row'>
+    <div className='col-2'></div>
+    <div className='col-6'><Glass /></div>
+    <div className='col-2'></div>
     </div>
-  </div>
   </div>
 );
 

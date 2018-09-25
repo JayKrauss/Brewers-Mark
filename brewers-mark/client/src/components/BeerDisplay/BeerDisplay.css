@@ -1,3 +1,12 @@
+body{
+  background-image: url('../../assets/images/glassback.png')
+}
+
+#beermain{
+position: relative;
+margin-top: 57%;
+}
+
 .card-body{
     overflow-y: auto;
   }
@@ -24,4 +33,138 @@
     z-index: 2;
     width: 50px;
     height: 50px;
+  }
+
+  #beer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    bottom: -50%;
+    background: #fed849;
+    background: linear-gradient(white, #b98904,#b98904,#b98904, #b98904,#b98904);
+    transition: all 3s ease-in-out;
+    transform: scaleY(0);
+    padding-top: 14%;
+  }
+  #beer.fill {
+    transform: scaleY(1);
+    bottom: 0%;
+  }
+  
+  #glass.rotate{
+    transition: all 2s ease-in;
+    transform: perspective(500px) rotateX(-30deg) rotate(25deg);
+  }
+  #beer.rotatetop{
+    transition: all 1s ease-in;
+    transform-origin: top;
+    transform: rotate(-20deg);
+  }
+  #beer.rotatetopback{
+    transition: all 1s ease-in;
+    transform-origin: top;
+    transform: rotate(0deg);
+  }
+  
+  #glass.rotateback{
+    transition: all 1s ease-in;
+    transform: perspective(500px) rotateX(-30deg) rotate(0deg) ;
+  }
+  
+  #glass {
+    position: relative;
+    display: block;
+    width: 300px;
+    height: 500px;
+    border: solid 10px #e8e4d9;
+    border-top: solid 5px #e8e4d9;
+    border-bottom: solid 30px #e8e4d9;
+    border-radius: 5px;
+    transform: perspective(500px) rotateX(-30deg);
+    transform-origin: center;
+    margin:auto;
+  }
+  
+  #tap {
+    position: relative;
+    display: block;
+    width: 150px;
+    height: 140px;
+    background: black;
+    border: solid 10px #e8e4d9;
+    border-top: solid 5px #e8e4d9;
+    border-bottom: solid 10px #e8e4d9;
+    border-radius: 5px;
+    transform: perspective(400px) rotateX(-30deg);
+    left: 44%;
+    bottom: 100%;
+    right: 2.25%;
+    z-index: 1;
+  }
+  
+  #glass:before,
+  #glass:after {
+    content: '';
+    position: absolute;
+    border-radius: 10px;
+    background: #fff;
+    width: 10px; 
+  }
+  #glass:before {
+    height: 20%;
+    left: 10px;
+    top: 5%;
+    z-index: 1;
+  }
+  #glass:after {
+    height: 70%;
+    right: 10px;
+    top: 5%;
+  }
+  #tap:before,
+  #tap:after {
+    content: '';
+    position: absolute;
+    border-radius: 10px;
+    background: #fff;
+    width: 10px;
+  }
+  #tap:before {
+    height: 20%;
+    left: 10px;
+    top: 5%;
+    z-index: 1;
+  }
+  #tap:after {
+    height: 70%;
+    right: 10px;
+    top: 5%;
+  }
+  
+  
+  #pour {
+    width: 40px;
+    height: 400%;
+    border-radius: 20px;
+    left: 50%;
+    transition: 300ms ease-in;
+    background: linear-gradient( #b98904,#b98904, white);
+    z-index: -1;
+  }
+  
+  #pour.pouring {
+    bottom: 16%;
+    position: absolute;
+  }
+  #pour.end {
+    height: 0;
+  }
+  .animationwrapper {
+    padding-top: 25%;
+  }
+  .animationwrapper .card {
+    height: 300px;
+    text-align: center;
+    background: white;
+    z-index: 2;
   }

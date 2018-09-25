@@ -7,9 +7,9 @@ import pourBeer from './pourbeer.js';
 const beerPourTimed = () => {
     setTimeout(function () {
         document.getElementById("pour").classList.add("pouring");
-    }, 400);
-    beerColor;
-    beerRise;
+    }, 300);
+    beerColor();
+    beerRise();
   }
 
   export default beerPourTimed;
