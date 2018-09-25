@@ -6,7 +6,7 @@ import {
   Switch
 } from 'react-router-dom'
 import Home from './components/Home/home.js'
-import Glass from './components/BeerDisplay/beerdisplay.js'
+import Glass from './components/Glass/Glass.js'
 
 const App = () => (
   <Router>
