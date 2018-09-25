@@ -2,11 +2,6 @@ import React from "react";
 import Landing from '../Landing/landing.js';
 import BrewerNav from '../Brewer/caskexport.js'
 import WelcomeChalkboard from '../WelcomeChalkboard/welcomechalkboard.js'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
 import './home.css';
 
 const Home = () => (
