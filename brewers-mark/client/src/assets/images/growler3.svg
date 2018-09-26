@@ -37,13 +37,16 @@
 	.st31{fill:#B78D7B;}
 	.st32{fill:#4F1A06;}
 	.st33{opacity:0.18;}
-	.st34{fill:none;stroke:#000000;stroke-miterlimit:10;}
-	.st35{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
-	.st36{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
+	.st34{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+	.st35{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
+	.st36{filter:url(#Adobe_OpacityMaskFilter);}
+	.st37{mask:url(#SVGID_1_);}
+	.st38{fill:none;stroke:#525252;stroke-miterlimit:10;}
+	.st39{fill:none;stroke:#525252;stroke-width:3;stroke-miterlimit:10;}
 </style>
 <g id="Layer_1_1_">
 	<rect class="st0" width="1400" height="980"/>
-	<path class="st1" d="M1187.4,770.5H212.6V187.7c0-21.6,17.5-39.2,39.2-39.2h896.4c21.6,0,39.2,17.5,39.2,39.2V770.5z"/>
+	<path class="st1" d="M1192.1,769.6H217.3V186.8c0-21.6,17.5-39.2,39.2-39.2h896.4c21.6,0,39.2,17.5,39.2,39.2V769.6z"/>
 </g>
 <g id="Layer_4">
 	<path class="st2" d="M229.3,410.4v-83.2c0-3.4,2.8-6.2,6.2-6.2H282c3.4,0,6.2,2.8,6.2,6.2v83.2L229.3,410.4L229.3,410.4z"/>
@@ -285,20 +288,6 @@
 	</g>
 	<g>
 		<g>
-			<path class="st6" d="M843,610c0,12.8-11.6,21.7-28.3,21.7c-11.2,0-22.4-5-27.5-12.3v-1.5l9.6-10h1.5c3.7,4.7,9.9,8,15.1,8
-				c5.1,0,8.7-3.1,8.7-7.6s-4.5-7.6-11.1-7.6h-7.3v-13.6h8.9c4.8,0,8.2-2.8,8.2-6.8s-3.4-6.8-8.2-6.8c-4.5,0-8.9,1.7-12.4,4.8h-1.5
-				l-7.8-10.5v-1.5c6.6-5.5,15.2-8.6,24.7-8.6c14.9,0,25.3,8.4,25.3,20.5c0,6.3-3.3,11.6-8.9,15.1C838.8,597.2,843,603.1,843,610z"
-				/>
-		</g>
-		<g>
-			<path class="st6" d="M886.2,625v7.7h-14.7v-7.4c-8-1.4-14.8-5-18.9-9.7v-1.5l7.9-9.8h1.5c3.3,3.1,9.9,6.8,15.4,6.8
-				c4.2,0,7-1.5,7-4c0-3.4-3.9-3.8-9.7-5.4c-8.9-2.6-19.5-7.7-19.5-19.4c0-8.8,6.5-15.4,16.3-17.5v-7.6h14.7v7.7
-				c6.6,1.4,12.2,4.3,15.4,8v1.5l-8.1,9.7H892c-2.5-2.5-7.4-6.2-13.1-6.2c-3.4,0-5.7,1.4-5.7,3.7c0,3.1,4.1,4.6,8,5.8
-				c10,3.1,21.3,6.4,21.3,19.7C902.5,617.3,895.5,623.1,886.2,625z"/>
-		</g>
-	</g>
-	<g>
-		<g>
 			<path class="st31" d="M793.3,649.3c10.2,0,20.4,0,30.7,0c2.6,0,2.6-4,0-4c-10.2,0-20.4,0-30.7,0
 				C790.8,645.3,790.8,649.3,793.3,649.3L793.3,649.3z"/>
 		</g>
@@ -446,10 +435,56 @@
 	<rect x="209.9" y="796.5" class="st32" width="974.8" height="7.5"/>
 </g>
 <g class="st33">
-	<polygon class="st10" points="663.4,659.3 602.6,659.3 588.3,546.3 676.9,546.3 	"/>
-	<polygon class="st34" points="663.4,659.3 602.6,659.3 588.3,546.3 676.9,546.3 	"/>
+	<polygon class="st10" points="657.2,659.9 608.6,659.9 597.2,569.5 668,569.5 	"/>
 </g>
-<rect x="647.3" y="486.3" class="st35" width="3.9" height="3.9"/>
-<line class="st36" x1="653" y1="637.5" x2="662.1" y2="561.3"/>
-<line class="st36" x1="610.3" y1="626" x2="605" y2="584.7"/>
+<rect x="647.3" y="486.3" class="st34" width="3.9" height="3.9"/>
+<line class="st35" x1="650.6" y1="651.4" x2="659.7" y2="575.2"/>
+<line class="st35" x1="611.1" y1="618.1" x2="605.8" y2="576.8"/>
+<path class="st8" d="M1209.5,813.8v13.5c0,13.5-11,24.5-24.5,24.5H194c-13.5,0-24.5-11-24.5-24.5v-13.5H1209.5z"/>
+<path class="st30" d="M1214.5,791.2h-1050c-3.7,0-6.7,3-6.7,6.7v9.3c0,3.7,3,6.7,6.7,6.7h1050c3.7,0,6.7-3,6.7-6.7v-9.3
+	C1221.2,794.2,1218.2,791.2,1214.5,791.2z"/>
+<line class="st14" x1="1209.5" y1="825.2" x2="169.5" y2="825.2"/>
+<image style="overflow:visible;" width="232" height="512" xlink:href="bottle.png"  transform="matrix(0.2274 0 0 0.2486 285.425 674.05)">
+</image>
+<image style="overflow:visible;" width="232" height="512" xlink:href="bottle.png"  transform="matrix(0.2274 0 0 0.2486 352.025 674.05)">
+</image>
+<image style="overflow:visible;" width="232" height="512" xlink:href="bottle.png"  transform="matrix(0.2274 0 0 0.2486 213.875 674.05)">
+</image>
+<image style="overflow:visible;" width="232" height="512" xlink:href="bottle.png"  transform="matrix(0.2274 0 0 0.2486 421.5125 675.625)">
+</image>
+<image style="overflow:visible;" width="232" height="512" xlink:href="bottle.png"  transform="matrix(0.2274 0 0 0.2486 491 675.625)">
+</image>
+<image style="overflow:visible;" width="232" height="512" xlink:href="bottle.png"  transform="matrix(0.2274 0 0 0.2486 837.3 674.05)">
+</image>
+<image style="overflow:visible;" width="232" height="512" xlink:href="bottle.png"  transform="matrix(0.2274 0 0 0.2486 903.5156 674.05)">
+</image>
+<image style="overflow:visible;" width="232" height="512" xlink:href="bottle.png"  transform="matrix(0.2274 0 0 0.2486 975.4813 675.35)">
+</image>
+<image style="overflow:visible;" width="232" height="512" xlink:href="bottle.png"  transform="matrix(0.2274 0 0 0.2486 1049.6251 674.05)">
+</image>
+<image style="overflow:visible;" width="232" height="512" xlink:href="bottle.png"  transform="matrix(0.2274 0 0 0.2486 1121.095 674.05)">
+</image>
+<g>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="783" y="569" width="121" height="1">
+			<feFlood  style="flood-color:white;flood-opacity:1" result="back"/>
+			<feBlend  in="SourceGraphic" in2="back" mode="normal"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="783" y="569" width="121" height="1" id="SVGID_1_">
+		<g class="st36">
+			<image style="overflow:visible;" width="125" height="5" xlink:href="AAA380B4.jpg"  transform="matrix(1 0 0 1 781 567)">
+			</image>
+		</g>
+	</mask>
+	<g class="st37">
+		<line class="st38" x1="783" y1="569.5" x2="904" y2="569.5"/>
+	</g>
+</g>
+<line class="st39" x1="783" y1="563.8" x2="904" y2="563.8"/>
+<line class="st39" x1="859.8" y1="606" x2="859.8" y2="608"/>
+<line class="st39" x1="784.5" y1="597.5" x2="886.2" y2="597.5"/>
+<line class="st39" x1="783" y1="581.7" x2="856.9" y2="581.7"/>
+<line class="st39" x1="783" y1="618.1" x2="904" y2="618.1"/>
+<line class="st39" x1="783" y1="631.1" x2="853.2" y2="631.1"/>
 </svg>
