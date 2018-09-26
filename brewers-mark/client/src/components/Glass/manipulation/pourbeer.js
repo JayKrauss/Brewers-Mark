@@ -2,15 +2,23 @@ import react from 'react';
 import $ from 'jquery'; 
 import {TimelineMax, Sine} from 'gsap';
 
+function beerRise() {
+  rotation();
+  document.getElementById("beer").classList.add("fill");
+}
+function rotation() {
+  document.getElementById("glass").classList.add("rotate");
+}
+function reverseRotation() {
+  document.getElementById("glass").classList.add("rotateback");
+}
+
 function beerPourTimed() {
   setTimeout(function () {
       document.getElementById("pour").classList.add("pouring");
   }, 300);
   beerColor();
   beerRise();
-}
-function rotation() {
-  document.getElementById("glass").classList.add("rotate");
 }
 
 function bubbles() {
@@ -43,7 +51,7 @@ function bubbles() {
 
 function beerColor() {
   // var EBC = $("#beerebc").attr("value");
-  var EBC = 10;
+  var EBC = 15;
     if (EBC <= 11) {
       document.getElementById("beer").style.background="linear-gradient(white, rgb(184, 123, 28, .95),rgb(184, 123, 28, .95),rgb(184, 123, 28, .95), rgb(184, 123, 28, .95),rgb(184, 123, 28, .95))";
       document.getElementById("pour").style.background="linear-gradient(rgb(184, 123, 28), rgb(184, 123, 28),white)";
@@ -65,13 +73,6 @@ function beerColor() {
       document.getElementById("pour").style.background="linear-gradient(rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), white)";
   }
 }
-function beerRise() {
-  rotation();
-  document.getElementById("beer").classList.add("fill");
-}
-function reverseRotation() {
-  document.getElementById("glass").classList.add("rotateback");
-}
 
 const pourBeer = () => {
     beerPourTimed();
@@ -81,9 +82,5 @@ const pourBeer = () => {
       bubbles();
     }, 1500);
   }
-  // setTimeout(function () {
-  //   pourBeer();
-  //   bubbles();
-  // },3000);
 
   export default pourBeer;
