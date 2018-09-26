@@ -8,6 +8,7 @@ import {
 import Home from './components/Home/home.js'
 import Glass from './components/Glass/Glass.js'
 import BottlesNav from './components/Bottles/bottlesexport.js'
+import BeerList from './components/BeerList/beerlist.js'
 
 const App = () => (
   <Router>
@@ -16,6 +17,7 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/glass" component={Glass} />
         <Route exact path="/IPA" component={BottlesNav} />
+        <Route exact path="/beerlist" component={BeerList} />
       </Switch>
 </div>
   </Router>
