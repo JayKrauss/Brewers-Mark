@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import CaskList from './casklist.js'
 import BrewersCask from './brewer.js'
+import $ from 'jquery'; 
 
 class BrewerNav extends Component {
 
     state = {
-      brewers: [{title:'IPA', href:'link1'}, {title:'Lager',href:'link2'}, {title:'Ale',href:'link3'}, {title:'Stout',href:'link4'}],
+      brewers: [{title:'IPA', href:'/IPA'}, {title:'Lager',href:'link2'}, {title:'Ale',href:'link3'}, {title:'Stout',href:'link4'}],
     };
-  
+    
     render() {
       return(
   

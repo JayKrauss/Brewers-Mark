@@ -7,8 +7,8 @@
 }
 
 .bottle{
-    width:150px;
-    height: 300px;
+    width:200px;
+    height: 430px;
     margin-bottom: 3px;
     background-image: url('../../assets/images/bottle.png');
     background-size: contain;
@@ -24,4 +24,6 @@
     margin-left: auto;
     margin-right: auto;
     z-index: 1;
+    position: absolute;
+    top: 35%;
 }
