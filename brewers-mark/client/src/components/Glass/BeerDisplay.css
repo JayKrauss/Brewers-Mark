@@ -1,11 +1,7 @@
-body{
-  background-image: url('../../assets/images/glassback.png');
-  background-repeat: no-repeat;
-}
-
-#beermain{
-position: relative;
-margin-top: 57%;
+#mainglass{
+position: absolute;
+bottom: 0%;
+left: 40%;
 }
 
 .card-body{

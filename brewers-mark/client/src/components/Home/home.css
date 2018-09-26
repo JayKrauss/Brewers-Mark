@@ -3,13 +3,6 @@
     background: url('../../assets/images/woodback.jpg')
 }
 
-body{
-    background: url('../../assets/images/growler2.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: inherit;
-}
-
 .cask{
     width:200px;
     height: 400px;

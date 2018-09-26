@@ -10,12 +10,12 @@ import Glass from './components/Glass/Glass.js'
 
 const App = () => (
   <Router>
-    <div>
+    <div id='display' className='container-fluid'>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/glass" component={Glass} />
       </Switch>
-    </div>
+</div>
   </Router>
 );
 
