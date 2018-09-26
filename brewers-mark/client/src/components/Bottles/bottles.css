@@ -1,24 +1,26 @@
-#brewerh4{
+.bottlesh4{
     transform: rotate(90deg);
     transform-origin: right top 0;
     position: relative;
-    left: -60%;
+    left: -42%;
+    margin-top:175%;
 }
-.cask{
-    width:200px;
-    height: 400px;
+
+.bottle{
+    width:150px;
+    height: 300px;
     margin-bottom: 3px;
-    background-image: url('../../assets/images/taphandleclearedfull.png');
+    background-image: url('../../assets/images/bottle.png');
     background-size: contain;
     background-color:transparent;
     background-repeat: no-repeat;
 }
 
-#brewerh4 {
+.bottlesh4 {
     color: white;
 }
 
-#brewernav{
+#bottlenav{
     margin-left: auto;
     margin-right: auto;
     z-index: 1;

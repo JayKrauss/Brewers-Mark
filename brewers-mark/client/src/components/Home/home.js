@@ -1,7 +1,7 @@
 import React from "react";
 import Landing from '../Landing/landing.js';
 import BrewerNav from '../Brewer/caskexport.js'
-import WelcomeChalkboard from '../WelcomeChalkboard/welcomechalkboard.js'
+import WelcomeChalkboard from '../WelcomeChalkboard/welcomechalkboard.js';
 import $ from 'jquery'; 
 import './home.css';
 

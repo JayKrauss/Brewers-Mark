@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 import Home from './components/Home/home.js'
 import Glass from './components/Glass/Glass.js'
+import BottlesNav from './components/Bottles/bottlesexport.js'
 
 const App = () => (
   <Router>
@@ -14,6 +15,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/glass" component={Glass} />
+        <Route exact path="/IPA" component={BottlesNav} />
       </Switch>
 </div>
   </Router>

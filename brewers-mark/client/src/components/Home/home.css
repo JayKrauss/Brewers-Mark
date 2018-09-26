@@ -3,26 +3,6 @@
     background: url('../../assets/images/woodback.jpg')
 }
 
-.cask{
-    width:200px;
-    height: 400px;
-    margin-bottom: 3px;
-    background-image: url('../../assets/images/taphandleclearedfull.png');
-    background-size: contain;
-    background-color:transparent;
-    background-repeat: no-repeat;
-}
-
-#brewerh4 {
-    color: white;
-}
-
-#brewernav{
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 1;
-}
-
 hr{
     color:black;
     height:3px;
