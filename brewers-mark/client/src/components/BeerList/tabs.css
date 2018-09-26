@@ -1,0 +1,11 @@
+.beertab{
+    height: 180px;
+    width: 180px;
+    background: linear-gradient(white, #b98904,#b98904,#b98904, #b98904,#b98904);
+    margin: 10px;
+    border: black solid 3px;
+}
+
+.tabsh4{
+    color:white;
+}
