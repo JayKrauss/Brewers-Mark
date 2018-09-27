@@ -20,8 +20,8 @@ class Home extends React.Component {
       <br />
     </div>
     <div className='row'>
-    <div className='col-2'><WelcomeChalkboard /></div>
-    <div className='col-6'><Landing /></div>
+    <div className='col-2'></div>
+    <div className='col-6'></div>
     <div className='col-2'></div>
     </div>
   </div>

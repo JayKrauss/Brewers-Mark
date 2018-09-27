@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import './brewer.css'
 
-// RecipeListItem renders a bootstrap list item containing data from the recipe api call
 export const BrewersCask = props => (
   <button className='btn btn-default cask'>
         <div>

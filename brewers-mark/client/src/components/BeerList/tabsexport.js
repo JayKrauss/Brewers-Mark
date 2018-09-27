@@ -4,7 +4,6 @@ import {TimelineMax, Sine} from 'gsap';
 import TabList from './tabslist.js'
 import TabBtn from './tabs.js'
 import './beerlist.css'
-// import bubbles from '../Glass/manipulation/bubbles.js'
 
 function bubbles() {
     var mainTl = new TimelineMax({ paused:false});
@@ -23,7 +22,7 @@ function bubbles() {
           var bubbleHeight = bubble.height();
           var tl = new TimelineMax();
           tl
-              .set(bubble, { y: function (index) { return (index + parentHeight * 1)}, scale: random(0.1, 0.2), x: random(1, 250), rotation: random(0, 360) })
+              .set(bubble, { y: function (index) { return (index + parentHeight * .8)}, scale: random(0.1, 0.2), x: random(1, 250), rotation: random(0, 360) })
               .to(bubble, 1, { x: "+=10", yoyo: true, repeat: 10, ease: Sine.easeInOut }, random(0, 30))
               .to(bubble, random(2, 30), { rotation: '+=360', y: String(-bubbleHeight), onComplete: animateBubble, onCompleteParams: [bubble] }, 0);
           return tl;
@@ -42,13 +41,13 @@ class BeerList extends Component {
 
     componentDidMount(){
         $('body').css('background-image' , 'url(./beerlistback.png)')
-        
+        bubbles();
       }
       
     render() {
       return(
         
-        <div id='tabnav'>
+<div id='tabnav'>
 <center>
         <TabList>
             {this.state.tab.map(tab => {
