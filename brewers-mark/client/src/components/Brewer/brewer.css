@@ -2,7 +2,9 @@
     transform: rotate(90deg);
     transform-origin: right top 0;
     position: relative;
-    left: -60%;
+    left: -62%;
+    color: white;
+    font-family: 'Black Ops One', cursive;
 }
 .cask{
     width:200px;
@@ -12,10 +14,6 @@
     background-size: contain;
     background-color:transparent;
     background-repeat: no-repeat;
-}
-
-#brewerh4 {
-    color: white;
 }
 
 #brewernav{
