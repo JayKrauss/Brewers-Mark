@@ -10,3 +10,14 @@ body{
     background: black;
     background-size: cover;
 }
+#chainsign {
+    width: auto;
+    position: absolute ;
+    top: -10%;
+    transition: transform 2s ease-in;
+    z-index: 3;
+}
+
+#chainsign .move {
+    transform: translate3d(0px, -470px, 0px);
+}

@@ -16,3 +16,22 @@ p {
     margin-top: 12%;
     padding-left: 2.5%;
 }
+
+#chainsign {
+    width: auto;
+    position: absolute ;
+    top: -10%;
+    transition: all 1s ease-in-out;
+    z-index: 3;
+}
+
+#chainsign.move {
+    animation: move 3s;
+    animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes move {
+    from { transform: translate3d(0, 0, 0);     }
+    to   { transform: translate3d(0, -460px, 0); }
+  }
