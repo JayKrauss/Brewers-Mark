@@ -1,21 +1,24 @@
-import React from "react";
+import React, { Component } from "react";
 import './welcomechalkboard.css';
+import ReactCSSTransitionGroup from 'react-transition-group';
+import chainsign from '../../assets/images/chainsign.png';
 
-const WelcomeChalkboard = () => (
+class WelcomeChalkboard extends Component {
+
+componentDidMount(){
+
+}
+
+    render(){
+        return(
     <div id='wcbackground'>
     <center>
-        <br />
-        <div id='wcheader'>
-            <h2 id='wch2'>Welcome to Brewer's Mark!</h2>
-            <hr />
+        <div id='chainsign'>
+        <img src={chainsign} />
         </div>
-        <div id='wcbody'>
-            <p class='wcp'>Today we have a fine selection of local breweries.</p>
-            <p class='wcp'>Take a look around, you may find something you like.</p>
-            <p class='wcp'>We've taken the area's top breweries and placed them at your fingertips. All of their offerings, all of their style, all for you.</p>
-        </div>
-        </center>
+    </center>
     </div>
-)
-
+        )
+    }
+}
 export default WelcomeChalkboard;
