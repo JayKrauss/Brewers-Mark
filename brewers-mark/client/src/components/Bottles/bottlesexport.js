@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import BottlesList from './bottleslist.js'
 import BottlesBtn from './bottles.js'
 import $ from 'jquery'; 
+import IPAchainsign from '../../assets/images/IPAchainsign.png';
+import IPAmove from './IPAmove.js'
 
 class BottlesNav extends Component {
 
@@ -11,13 +13,22 @@ class BottlesNav extends Component {
 
     componentDidMount(){
         $('body').css('background-image' , 'url(./bottleback.png)')
-      }
 
+        function IPAtimedMove(){
+          setTimeout(function () {
+            IPAmove();
+          }, 1000);
+        }
+      
+        IPAtimedMove();
+        }
       
     render() {
       return(
   
     <div id='bottlenav'>
+    <center>
+      <img src={IPAchainsign} id='IPAchainsign'/>
     <BottlesList>
         {this.state.bottles.map(bottles => {
           return (
@@ -29,6 +40,7 @@ class BottlesNav extends Component {
           );
         })}
       </BottlesList>
+      </center>
       </div>
       )}
 }

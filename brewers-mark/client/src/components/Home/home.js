@@ -11,7 +11,14 @@ class Home extends React.Component {
 
   componentDidMount(){
     $('body').css('background-image' , 'url(./growler2.png)');
-    move();    
+
+    function timedMove(){
+    setTimeout(function () {
+      move();
+    }, 1000);
+  }
+
+  timedMove();
   }
 
   render(){
