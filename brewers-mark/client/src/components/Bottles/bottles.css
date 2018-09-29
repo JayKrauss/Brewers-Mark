@@ -27,3 +27,23 @@
     position: absolute;
     top: 35%;
 }
+
+#IPAchainsign{
+    width: auto;
+    position: absolute ;
+    top: -400%;
+    transition: transform 5s ease-in;
+    z-index: 3;
+    left:32%;
+}
+
+#IPAchainsign.IPAmove {
+    animation: IPAmove 3s;
+    animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes IPAmove {
+    from { transform: translate3d(0, 0, 0);     }
+    to   { transform: translate3d(0, 350px, 0); }
+  }
