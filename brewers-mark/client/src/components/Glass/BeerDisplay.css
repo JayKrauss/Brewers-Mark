@@ -1,7 +1,70 @@
 #mainglass{
 position: absolute;
-bottom: -3%;
-left: 40%;
+bottom: -5%;
+left:25%;
+}
+
+#beername {
+  position: absolute;
+  left: 33.3%;
+  top: -150%;
+}
+
+#beertitle {
+  position: absolute;
+  left: 33%;
+  bottom: 10%;
+  font-size: 40px;
+}
+
+#beername.namemove {
+  animation: namemove 3s;
+    animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes namemove {
+  from { transform: translate3d(0, 0, 0);     }
+    to   { transform: translate3d(0, 350px, 0); }
+}
+
+#leftinfo, #rightinfo {
+  margin-top: 350%;
+  height: 350px;
+  width: 450px;
+  transition: transform 5s ease-in;
+    z-index: 3;
+}
+
+#rightinfo.signmove {
+    animation: signmove 3s;
+    animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#leftinfo.signmove {
+  animation: signmove 3s;
+  animation-fill-mode: forwards;
+-webkit-animation-fill-mode: forwards;
+}
+
+@keyframes signmove {
+    from { transform: translate3d(0, 0, 0);     }
+    to   { transform: translate3d(0, -450px, 0); }
+  }
+
+
+#leftinfo {
+  position: absolute;
+  left: -125%;
+  background-image: url('../../assets/images/signbackground.png');
+  background-size: contain;
+}
+
+#rightinfo { 
+  position: absolute;
+  right: -325%;
+  background-image: url('../../assets/images/signbackground.png');
+  background-size: contain;
 }
 
 .card-body{
@@ -37,17 +100,16 @@ left: 40%;
     height: 100%;
     position: relative;
     bottom: -50%;
-    background: #fed849;
+    /* background: #fed849; */
+    transform: scaleY(0);
     background: linear-gradient(white, #b98904,#b98904,#b98904, #b98904,#b98904);
     transition: all 3s ease-in-out;
-    transform: scaleY(0);
     padding-top: 14%;
   }
   #beer.fill {
     transform: scaleY(1);
     bottom: 0%;
   }
-  
   #glass.rotate{
     transition: all 2s ease-in;
     transform: perspective(500px) rotateX(-30deg) rotate(25deg);

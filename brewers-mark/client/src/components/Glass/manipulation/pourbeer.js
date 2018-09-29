@@ -4,7 +4,10 @@ import {TimelineMax, Sine} from 'gsap';
 
 function beerRise() {
   rotation();
-  document.getElementById("beer").classList.add("fill");
+  beerfill();
+}
+function beerfill() {
+  document.getElementById('beer').classList.add('fill');
 }
 function rotation() {
   document.getElementById("glass").classList.add("rotate");
@@ -14,11 +17,12 @@ function reverseRotation() {
 }
 
 function beerPourTimed() {
+
+  document.getElementById("pour").classList.add("pouring");
   setTimeout(function () {
-      document.getElementById("pour").classList.add("pouring");
-  }, 300);
-  beerColor();
-  beerRise();
+    beerColor();
+    beerRise();
+  }, 100);
 }
 
 function bubbles() {
