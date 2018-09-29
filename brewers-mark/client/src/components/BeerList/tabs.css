@@ -1,10 +1,53 @@
-.beertab{
+
+.beertab {
+    overflow: hidden;
     height: 180px;
-    width: 180px;
-    background: linear-gradient(white, #b98904,#b98904,#b98904, #b98904,#b98904);
-    margin: 10px;
-    border: black solid 3px;
-}
+    width: 140px;
+    margin: 50px;
+    border: black solid 2px;
+    transform: perspective(170px) rotateX(-30deg);
+    transform-origin: center;
+  
+  }
+  .beertab {
+    background-image: url('../../assets/images/ale.jpg');
+    background-position: 50% 125px;
+    background-size: 300px;
+    background-repeat: no-repeat;
+  }
+  .beertab.reset {
+    -webkit-animation-name: emptybeer 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-fill-mode: forwards;
+  }
+  .beertab.loading {
+    animation: fillbeer 3s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-fill-mode: forwards;
+  }
+  
+  @keyframes fillbeer {
+    0% {
+      background-size: 200px;
+      background-position: 50% 105px;
+    }
+    100% {
+      background-size: 300px;
+      background-position: 50% 1px;
+    }
+  }
+  @keyframes emptybeer {
+    0% {
+      background-size: 75px;
+      background-position: 50% -1px;
+    }
+    100% {
+      background-size: 180px;
+      background-position: 50% 105px;
+    }
+  }
 
 .tabsh4{
     color:white;

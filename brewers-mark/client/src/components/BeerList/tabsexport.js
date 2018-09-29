@@ -4,6 +4,7 @@ import {TimelineMax, Sine} from 'gsap';
 import TabList from './tabslist.js'
 import TabBtn from './tabs.js'
 import './beerlist.css'
+import css3 from 'compass';
 
 function bubbles() {
     var mainTl = new TimelineMax({ paused:false});
@@ -11,7 +12,7 @@ function bubbles() {
       var parentHeight = $(".beertab").height();
       var parentWidth = $(".beertab").width();
 
-      $(".beertab").append(new Array(50).join('<div class="bubble" />'));
+      $(".beertab").append(new Array(100).join('<div class="bubble" />'));
 
       $(".bubble").each(function (i, bubble) {
           animateBubble(bubble);
@@ -39,9 +40,15 @@ class BeerList extends Component {
       tab:[{title:'Tropical IPA', url:'link?', div:'tab'},{title:'NonFizz IPA', url:'link?', div:'tab'},{title:'This IPA', url:'link?', div:'tab'},{title:'That IPA', url:'link?', div:'tab'},{title:'My IPA', url:'link?', div:'tab'},{title:'Your IPA', url:'link?', div:'tab'},{title:'What IPA', url:'link?', div:'tab'},{title:'Why IPA', url:'link?', div:'tab'},{title:'Whos IPA', url:'link?', div:'tab'},{title:'When IPA', url:'link?', div:'tab'},{title:'Now IPA', url:'link?', div:'tab'}]
     };
 
+    
+
     componentDidMount(){
         $('body').css('background-image' , 'url(./beerlistback.png)')
-        bubbles();
+
+        function blockAnimate(){            
+            $('.beertab').addClass('loading');
+          };
+          blockAnimate();
       }
       
     render() {
