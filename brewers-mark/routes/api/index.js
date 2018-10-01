@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const bookRoutes = require("./books");
+const adminSignUpRoute = require("./admin.js");
 
-// Book routes
-router.use("/books", bookRoutes);
+// Admin routes
+router.use("/admin/registration", adminSignUpRoute);
 
 module.exports = router;

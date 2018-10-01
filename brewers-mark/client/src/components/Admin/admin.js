@@ -3,7 +3,7 @@ import Icons from '../Icons';
 import './admin.css';
 import SignUpIcon from '../../assets/images/signup_icon.ico';
 import LoginIcon from '../../assets/images/login_icon.ico';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 
 
 class Admin extends React.Component {
