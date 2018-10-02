@@ -106,6 +106,7 @@ adminUserSchema.pre('save', function (next) {
   // UserSchema.methods.validPassword = function(password) {
   //   return bcrypt.compareSync(password, this.password);
   // };
+  // module.exports = mongoose.model('User', UserSchema);
 
 // This creates our model from the above schema, using mongoose's model method
 const adminUser = mongoose.model("Users", adminUserSchema);
