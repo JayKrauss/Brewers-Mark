@@ -10,6 +10,7 @@ import Glass from './components/Glass/Glass.js'
 import BottlesNav from './components/Bottles/bottlesexport.js'
 import BeerList from './components/BeerList/tabsexport'
 import Admin from './components/Admin/admin.js'
+import Signup from './components/Admin/signup.js'
 
 const App = () => (
   <Router>
@@ -20,7 +21,7 @@ const App = () => (
         <Route exact path="/IPA" component={BottlesNav} />
         <Route exact path="/beerlist" component={BeerList} />
         <Route exact path="/admin" component={Admin} />
-        {/* <Route exact path="/admin/registration" component={Admin} /> */}
+        <Route exact path="/adminregistration" component={Signup} />
         {/* <Route exact path="/admin/login" component={Admin} /> */}
 
       </Switch>

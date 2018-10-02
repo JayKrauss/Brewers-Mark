@@ -11,7 +11,7 @@ class Signup extends Component {
             // session:''
             signUpError: '',
             signInError: '',
-            signinEmail: '',
+            signInUsername: '',
             signInPassword: '',
             signUpCompany: '',
             signUpFirstName: '',
@@ -23,7 +23,7 @@ class Signup extends Component {
             signUpPasswordConf: '',
         };
 
-        this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
+        this.onTextboxChangeSignInUsername = this.onTextboxChangeSignInUsername.bind(this);
         this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
         this.onTextboxChangeSignUpCompany = this.oonTextboxChangeSignUpCompanyl.bind(this);
         this.onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
@@ -66,9 +66,9 @@ class Signup extends Component {
         }
     }
 
-    onTextboxChangeSignInEmail(event) {
+    onTextboxChangeSignInUsername(event) {
         this.setState({
-            signInEmail: event.target.value,
+            signInUsername: event.target.value,
         });
     }
 
@@ -143,7 +143,7 @@ class Signup extends Component {
         });
 
         // Post request to backend
-        fetch('/api/api/admin.js', {
+        fetch('/api/admin.js', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -178,154 +178,204 @@ class Signup extends Component {
             });
     }
 
-//     onSignIn() {
-//         // Grab state
-//         const {
-//             signInEmail,
-//             signInPassword,
-//         } = this.state;
+    onSignIn() {
+        // Grab state
+        const {
+            signInUsername,
+            signInPassword,
+        } = this.state;
 
-//         this.setState({
-//             isLoading: true,
-//         });
+        this.setState({
+            isLoading: true,
+        });
 
-//         // Post request to backend
-//         fetch('/api/account/signin', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify({
-//                 email: signInEmail,
-//                 password: signInPassword,
-//             }),
-//         }).then(res => res.json())
-//             .then(json => {
-//                 console.log('json', json);
-//                 if (json.success) {
-//                     setInStorage('the_main_app', { token: json.token });
-//                     this.setState({
-//                         signInError: json.message,
-//                         isLoading: false,
-//                         signInPassword: '',
-//                         signInEmail: '',
-//                         token: json.token,
-//                     });
-//                 } else {
-//                     this.setState({
-//                         signInError: json.message,
-//                         isLoading: false,
-//                     });
-//                 }
-//             });
-//     }
+        // Post request to backend
+        fetch('/api/admin.js', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: signInUsername,
+                password: signInPassword,
+            }),
+        }).then(res => res.json())
+            .then(json => {
+                console.log('json', json);
+                if (json.success) {
+                    setInStorage('the_main_app', { token: json.token });
+                    this.setState({
+                        signInError: json.message,
+                        isLoading: false,
+                        signInUsername: '',
+                        signInPassword: '',
+                        token: json.token,
+                    });
+                } else {
+                    this.setState({
+                        signInError: json.message,
+                        isLoading: false,
+                    });
+                }
+            });
+    }
 
-//     logout() {
-//         this.setState({
-//             isLoading: true,
-//         });
-//         const obj = getFromStorage('the_main_app');
-//         if (obj && obj.token) {
-//             const { token } = obj;
-//             // Verify token
-//             fetch('/api/account/logout?token=' + token)
-//                 .then(res => res.json())
-//                 .then(json => {
-//                     if (json.success) {
-//                         this.setState({
-//                             token: '',
-//                             isLoading: false
-//                         });
-//                     } else {
-//                         this.setState({
-//                             isLoading: false,
-//                         });
-//                     }
-//                 });
-//         } else {
-//             this.setState({
-//                 isLoading: false,
-//             });
-//         }
-//     }
+    logout() {
+        this.setState({
+            isLoading: true,
+        });
+        const obj = getFromStorage('the_main_app');
+        if (obj && obj.token) {
+            const { token } = obj;
+            // Verify token
+            fetch('/api/account/logout?token=' + token)
+                .then(res => res.json())
+                .then(json => {
+                    if (json.success) {
+                        this.setState({
+                            token: '',
+                            isLoading: false
+                        });
+                    } else {
+                        this.setState({
+                            isLoading: false,
+                        });
+                    }
+                });
+        } else {
+            this.setState({
+                isLoading: false,
+            });
+        }
+    }
 
-//     render() {
-//         const {
-//             isLoading,
-//             token,
-//             signInError,
-//             signInEmail,
-//             signInPassword,
-//             signUpEmail,
-//             signUpPassword,
-//             signUpError,
-//         } = this.state;
+    render() {
+        // const {
+        //     isLoading: true,
+        //     token: '',
+        //     session:''
+        //     signUpError: '',
+        //     signInError: '',
+        //     signinEmail: '',
+        //     signInPassword: '',
+        //     signUpCompany: '',
+        //     signUpFirstName: '',
+        //     signUpLastName: '',
+        //     signUpEmail: '',
+        //     signUpPhone: '',
+        //     signUpUsername: '',
+        //     signUpPassword: '',
+        //     signUpPasswordConf: '',
+        // } = this.state;
+    
 
-//         if (isLoading) {
-//             return (<div><p>Loading...</p></div>);
-//         }
+        // if (isLoading) {
+        //     return (<div><p>Loading...</p></div>);
+        // }
 
-//         if (!token) {
-//             return (
-//                 <div>
-//                     <div>
-//                         {
-//                             (signInError) ? (
-//                                 <p>{signInError}</p>
-//                             ) : (null)
-//                         }
-//                         <p>Sign In</p>
-//                         <input
-//                             type="email"
-//                             placeholder="Email"
-//                             value={signInEmail}
-//                             onChange={this.onTextboxChangeSignInEmail}
-//                         />
-//                         <br />
-//                         <input
-//                             type="password"
-//                             placeholder="Password"
-//                             value={signInPassword}
-//                             onChange={this.onTextboxChangeSignInPassword}
-//                         />
-//                         <br />
-//                         <button onClick={this.onSignIn}>Sign In</button>
-//                     </div>
-//                     <br />
-//                     <br />
-//                     <div>
-//                         {
-//                             (signUpError) ? (
-//                                 <p>{signUpError}</p>
-//                             ) : (null)
-//                         }
-//                         <p>Sign Up</p>
-//                         <input
-//                             type="email"
-//                             placeholder="Email"
-//                             value={signUpEmail}
-//                             onChange={this.onTextboxChangeSignUpEmail}
-//                         /><br />
-//                         <input
-//                             type="password"
-//                             placeholder="Password"
-//                             value={signUpPassword}
-//                             onChange={this.onTextboxChangeSignUpPassword}
-//                         /><br />
-//                         <button onClick={this.onSignUp}>Sign Up</button>
-//                     </div>
+        // if (!token) {
+        //     return (
+        //         <div>
+        //             <div>
+        //                 {
+        //                     (signInError) ? (
+        //                         <p>{signInError}</p>
+        //                     ) : (null)
+        //                 }
+                        <p>Sign In</p>
+                        <input
+                            type="Username"
+                            placeholder="Username"
+                            value={signInUsername}
+                            onChange={this.onTextboxChangeSignInUsername}
+                        />
+                        <br />
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            value={signInPassword}
+                            onChange={this.onTextboxChangeSignInPassword}
+                        />
+                        <br />
+                        <button onClick={this.onSignIn}>Sign In</button>
+                    </div>
+                    <br />
+                    <br />
+                    <div>
+                        {
+                            (signUpError) ? (
+                                <p>{signUpError}</p>
+                            ) : (null)
+                        }
+                        <p>Sign Up</p>
+                        <input
+                            type="company"
+                            placeholder="Brewery Name"
+                            value={signUpCompany}
+                            onChange={this.onTextboxChangeSignUpCompany}
+                        /><br />
+                        <input
+                            type="firstName"
+                            placeholder="First Name"
+                            value={signUpFirstName}
+                            onChange={this.onTextboxChangeSignUpFirstName}
+                        /><br />
+                        <input
+                            type="lastName"
+                            placeholder="Last Name"
+                            value={signUpLastName}
+                            onChange={this.onTextboxChangeSignUpLastName}
+                        /><br />
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            value={signUpEmail}
+                            onChange={this.onTextboxChangeSignUpEmail}
+                        /><br />
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            value={signUpEmail}
+                            onChange={this.onTextboxChangeSignUpEmail}
+                        /><br />
+                        <input
+                            type="phone"
+                            placeholder="Phone Number"
+                            value={signUpPhone}
+                            onChange={this.onTextboxChangeSignUpPhone}
+                        /><br />
+                        <input
+                            type="username"
+                            placeholder="Username"
+                            value={signUpUsername}
+                            onChange={this.onTextboxChangeSignUpUsername}
+                        /><br />
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            value={signUpPassword}
+                            onChange={this.onTextboxChangeSignUpPassword}
+                        /><br />
+                        <input
+                            type="passwordConf"
+                            placeholder="Confirm Password"
+                            value={signUpPasswordConf}
+                            onChange={this.onTextboxChangeSignUpPasswordConf}
+                        /><br />
+                        <button onClick={this.onSignUp}>Sign Up</button>
+                    </div>
 
-//                 </div>
-//             );
-//         }
+                </div>
+            );
+        }
 
-//         return (
-//             <div>
-//                 <p>Account</p>
-//                 <button onClick={this.logout}>Logout</button>
-//             </div>
-//         );
-//     }
-// }
+        return (
+            <div>
+                <p>Account</p>
+                <button onClick={this.logout}>Logout</button>
+            </div>
+        );
+    }
+}
 
-// export default Home;
+export default Signup;
