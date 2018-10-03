@@ -1,3 +1,7 @@
+// module.exports = {
+//   Book: require("./book")
+// };
+
 module.exports = {
-  Book: require("./book")
+  adminUser: require("./adminUser")
 };

@@ -10,6 +10,8 @@ import Glass from './components/Glass/Glass.js'
 import BottlesNav from './components/Bottles/bottlesexport.js'
 import BeerList from './components/BeerList/tabsexport'
 import Survey from './components/Survey/survey.js'
+import Admin from './components/Admin/admin.js'
+
 
 const App = () => (
   <Router>
@@ -20,6 +22,9 @@ const App = () => (
         <Route exact path="/IPA" component={BottlesNav} />
         <Route exact path="/beerlist" component={BeerList} />
         <Route exact path="/survey" component={Survey} />
+        <Route exact path="/admin" component={Admin} />
+        {/* <Route exact path="/admin/registration" component={Admin} /> */}
+        {/* <Route exact path="/admin/login" component={Admin} /> */}
       </Switch>
 </div>
   </Router>
