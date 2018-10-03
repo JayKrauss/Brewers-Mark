@@ -18,17 +18,24 @@ p {
 }
 
 #chainsign {
-    width: auto;
+    width: 10rem;
     position: absolute ;
     top: -10%;
     transition: all 1s ease-in-out;
-    z-index: 3;
+    z-index: 0;
 }
 
 #chainsign.move {
     animation: move 3s;
     animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards;
+}
+
+#chalk {
+    position: absolute;
+    bottom: 2%;
+    right: 60%;
+
 }
 
 @keyframes move {
