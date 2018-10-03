@@ -8,7 +8,6 @@ class Signup extends Component {
 
     state = {
         // isLoading: true,
-        // token: '',
         // session:''
         signUpError: '',
         signInError: '',
@@ -31,7 +30,7 @@ class Signup extends Component {
         });
     };
 
-    onSignUp = () =>  {
+    onSignUp = () => {
         // Grab state
         const {
             signUpCompany,
@@ -51,34 +50,40 @@ class Signup extends Component {
 
         // Post request to backend
         axios.post('/api/admin/registration', {
-            
-                company: signUpCompany,
-                firstName: signUpFirstName,
-                lastName: signUpLastName,
-                email: signUpEmail,
-                phone: signUpPhone,
-                username: signUpUsername,
-                password: signUpPassword,
-                passwordConf: signUpPasswordConf
-            });
+
+            company: signUpCompany,
+            firstName: signUpFirstName,
+            lastName: signUpLastName,
+            email: signUpEmail,
+            phone: signUpPhone,
+            username: signUpUsername,
+            password: signUpPassword,
+            passwordConf: signUpPasswordConf
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
         // })
-            // .then(res => res.json())
-            // .then(json => {
-            //     console.log('json', json);
-            //     if (json.success) {
-            //         this.setState({
-            //             signUpError: json.message,
-            //             isLoading: false,
-            //             signUpEmail: '',
-            //             signUpPassword: '',
-            //         });
-            //     } else {
-            //         this.setState({
-            //             signUpError: json.message,
-            //             isLoading: false,
-            //         });
-            //     }
-            // });
+        // .then(res => res.json())
+        // .then(json => {
+        //     console.log('json', json);
+        //     if (json.success) {
+        //         this.setState({
+        //             signUpError: json.message,
+        //             isLoading: false,
+        //             signUpEmail: '',
+        //             signUpPassword: '',
+        //         });
+        //     } else {
+        //         this.setState({
+        //             signUpError: json.message,
+        //             isLoading: false,
+        //         });
+        //     }
+        // });
     }
 
     // onSignIn() {
