@@ -2,18 +2,21 @@
     transform: rotate(90deg);
     transform-origin: right top 0;
     position: relative;
-    left: -62%;
+    left: -56.5%;
     color: white;
     font-family: 'Black Ops One', cursive;
+    top:50%;
 }
+
 .cask{
-    width:200px;
-    height: 400px;
+    width:11rem;
+    height: 25rem;
     margin-bottom: 3px;
     background-image: url('../../assets/images/taphandleclearedfull.png');
     background-size: contain;
     background-color:transparent;
     background-repeat: no-repeat;
+    z-index: 0;
 }
 
 #brewernav{
