@@ -96,21 +96,21 @@ adminUserSchema.pre('save', function (next) {
 });
 
 // UserSchema.methods.generateHash = function(password) {
-  //   return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
-  // };
+//     return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+//   };
   
-  // UserSchema.methods.generateHash = function(passwordConf) {
-  //   return bcrypt.hashSync(passwordConf, bcrypt.genSaltSync(10), null);
-  // };
+//   UserSchema.methods.generateHash = function(passwordConf) {
+//     return bcrypt.hashSync(passwordConf, bcrypt.genSaltSync(10), null);
+//   };
   
-  // UserSchema.methods.validPassword = function(password) {
-  //   return bcrypt.compareSync(password, this.password);
-  // };
-  // module.exports = mongoose.model('User', UserSchema);
+//   UserSchema.methods.validPassword = function(password) {
+//     return bcrypt.compareSync(password, this.password);
+//   };
+//   module.exports = mongoose.model('User', UserSchema);
 
 // This creates our model from the above schema, using mongoose's model method
-const adminUser = mongoose.model("Users", adminUserSchema);
-console.log(User);
+const adminUser = mongoose.model("adminUser", adminUserSchema);
+console.log(adminUser);
 
 // Export the User model
 module.exports = adminUser;

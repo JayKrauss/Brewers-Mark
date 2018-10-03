@@ -1,8 +1,9 @@
 const routes = require('express').Router();
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
+// const session = require('express-session');
 
-const adminUser = require("../models/adminUser.js");
+const adminUser = require("../../models/adminUser.js");
 
 // GET route-Load login page
 // routes.get('/', (req, res) => {
@@ -74,7 +75,8 @@ const adminUser = require("../models/adminUser.js");
 // };
 
 //POST route on registration/login on click "submit"- creates new User
-routes.post('/submit', function (req, res, next) {
+routes.post('/registration', function (req, res, next) {
+  console.log("HERE");
   // confirm that user typed same password twice
   if (req.body.password !== req.body.passwordConf) {
     var err = new Error('Passwords do not match.');
@@ -91,6 +93,7 @@ routes.post('/submit', function (req, res, next) {
     req.body.username &&
     req.body.password &&
     req.body.passwordConf) {
+    console.log("HERE2");
 
     var adminUserData = {
       company: req.body.company,
@@ -181,41 +184,41 @@ routes.post('/submit', function (req, res, next) {
 
 
 // GET route after registering
-// routes.get('/profile', function (req, res, next) {
-//   User.findById(req.session.userId)
-//     .exec(function (error, user) {
-//       if (error) {
-//         return next(error);
-//       }
+routes.get('/profile', function (req, res, next) {
+  User.findById(req.session.userId)
+    .exec(function (error, user) {
+      if (error) {
+        return next(error);
+      }
 
-//       else {
-//         if (user === null) {
-//           var err = new Error('Not authorized! Go back!');
-//           err.status = 400;
-//           return next(err);
-//         }
+      else {
+        if (user === null) {
+          var err = new Error('Not authorized! Go back!');
+          err.status = 400;
+          return next(err);
+        }
 
-//         else {
-//           return res.send('<h1>Name: </h1>' + user.username + '<h2>Mail: </h2>' + user.email + '<br><a type="button" href="/logout">Logout</a>')
-//         }
-//       }
-//     });
-// });
+        else {
+          return res.send('<h1>Name: </h1>' + user.username + '<h2>Mail: </h2>' + user.email + '<br><a type="button" href="/logout">Logout</a>')
+        }
+      }
+    });
+});
 
-// // GET for logout logout
-// routes.get('/logout', function (req, res, next) {
-//   if (req.session) {
-//     // delete session object
-//     req.session.destroy(function (err) {
-//       if (err) {
-//         return next(err);
-//       }
+// GET for logout logout
+routes.get('/logout', function (req, res, next) {
+  if (req.session) {
+    // delete session object
+    req.session.destroy(function (err) {
+      if (err) {
+        return next(err);
+      }
 
-//       else {
-//         return res.redirect('/');
-//       }
-//     });
-//   }
-// });
+      else {
+        return res.redirect('/');
+      }
+    });
+  }
+});
 
 module.exports = routes;

@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const adminSignUpRoute = require("./admin.js");
+const adminSignUpRoute = require("./adminRoute.js");
 
 // Admin routes
-router.use("/admin/registration", adminSignUpRoute);
+router.use("/admin", adminSignUpRoute);
 
 module.exports = router;
