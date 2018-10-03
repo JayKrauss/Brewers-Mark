@@ -5,11 +5,8 @@ const bcrypt = require('bcrypt');
 // Saving a reference to the Schema constructor
 const Schema = mongoose.Schema;
 
-<<<<<<< HEAD
+
 // Schema constructor that creates a new UserSchema object
-=======
-// Schema constructor, creates new adminUserSchema object
->>>>>>> e0f4c9dda609853f65e01b09284e262e7ab3a7a2
 const adminUserSchema = new Schema({
   company: {
     type: String
@@ -74,11 +71,7 @@ const adminUserSchema = new Schema({
   
 });
 
-<<<<<<< HEAD
-//hashing password before saving it to the database
-=======
-// Hashing password before saving it to the database
->>>>>>> e0f4c9dda609853f65e01b09284e262e7ab3a7a2
+//hashing password before saving it to the dat
 adminUserSchema.pre('save', function (next) {
   var user = this;
   bcrypt.hash(user.password, 10, function (err, hash) {
@@ -90,11 +83,7 @@ adminUserSchema.pre('save', function (next) {
   })
 });
 
-<<<<<<< HEAD
 //hashing passwordConf before saving it to the database
-=======
-// Hashing passwordConf before saving it to the database
->>>>>>> e0f4c9dda609853f65e01b09284e262e7ab3a7a2
 adminUserSchema.pre('save', function (next) {
   var user = this;
   bcrypt.hash(user.passwordConf, 10, function (err, hash) {
@@ -106,11 +95,7 @@ adminUserSchema.pre('save', function (next) {
   })
 });
 
-<<<<<<< HEAD
 // Model created from the above schema, using mongoose's model method
-=======
-// Creating model from the above schema, using mongoose's model method
->>>>>>> e0f4c9dda609853f65e01b09284e262e7ab3a7a2
 const adminUser = mongoose.model("adminUser", adminUserSchema);
 console.log(adminUser);
 
