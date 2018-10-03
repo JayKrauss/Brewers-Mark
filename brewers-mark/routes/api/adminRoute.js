@@ -1,7 +1,6 @@
 const routes = require('express').Router();
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
-// const session = require('express-session');
 
 const adminUser = require("../../models/adminUser.js");
 
@@ -46,7 +45,6 @@ routes.post('/registration', function (req, res, next) {
         console.log("New Admin Created: " + req.body.company);
         // res.redirect("../profile");
         let transporter = nodemailer.createTransport({
-          // create reusable transporter object using the default SMTP transport
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
@@ -73,13 +71,11 @@ routes.post('/registration', function (req, res, next) {
           console.log('Message sent successfully!');
           console.log(nodemailer.getTestMessageUrl(info));
 
-          // only needed when using pooled connections
           transporter.close();
         });
       }
     });
   }
-
   else if (req.body.loginUsername && req.body.loginPassword) {
 
     var username = req.body.loginUsername;
