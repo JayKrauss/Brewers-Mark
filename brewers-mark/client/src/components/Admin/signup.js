@@ -8,7 +8,6 @@ class Signup extends Component {
 
     state = {
         // isLoading: true,
-        // token: '',
         // session:''
         signUpError: '',
         signInError: '',
@@ -24,48 +23,6 @@ class Signup extends Component {
         signUpPasswordConf: '',
     }
 
-    // this.onTextboxChangeSignInUsername = this.onTextboxChangeSignInUsername.bind(this);
-    // this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
-    // this.onTextboxChangeSignUpCompany = this.onTextboxChangeSignUpCompany.bind(this);
-    // this.onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
-    // this.onTextboxChangeSignUpLastName = this.onTextboxChangeSignUpLastName.bind(this);
-    // this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
-    // this.onTextboxChangeSignUpPhone = this.onTextboxChangeSignUpPhone.bind(this);
-    // this.onTextboxChangeSignUpUsername = this.onTextboxChangeSignUpUsername.bind(this);
-    // this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
-    // this.onTextboxChangeSignUpPasswordConf = this.onTextboxChangeSignUpPasswordConf.bind(this);
-
-
-    // this.onSignIn = this.onSignIn.bind(this);
-    // this.onSignUp = this.onSignUp.bind(this);
-    // this.logout = this.logout.bind(this);
-
-
-    // componentDidMount() {
-    //     const obj = getFromStorage('the_main_app');
-    //     if (obj && obj.token) {
-    //         const { token } = obj;
-    //         // Verify token
-    //         fetch('/api/account/verify?token=' + token)
-    //             .then(res => res.json())
-    //             .then(json => {
-    //                 if (json.success) {
-    //                     this.setState({
-    //                         token,
-    //                         isLoading: false
-    //                     });
-    //                 } else {
-    //                     this.setState({
-    //                         isLoading: false,
-    //                     });
-    //                 }
-    //             });
-    //     } else {
-    //         this.setState({
-    //             isLoading: false,
-    //         });
-    //     }
-    // }
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -73,67 +30,7 @@ class Signup extends Component {
         });
     };
 
-
-    // onTextboxChangeSignInUsername(event) {
-    //     this.setState({
-    //         signInUsername: event.target.value,
-    //     });
-    // };
-
-    // onTextboxChangeSignInPassword(event) {
-    //     this.setState({
-    //         signInPassword: event.target.value,
-    //     });
-    // }
-
-    // onTextboxChangeSignUpCompany(event) {
-    //     this.setState({
-    //         signUpCompany: event.target.value,
-    //     });
-    // }
-
-    // onTextboxChangeSignUpFirstName(event) {
-    //     this.setState({
-    //         signUpFirstName: event.target.value,
-    //     });
-    // }
-
-    // onTextboxChangeSignUpLastName(event) {
-    //     this.setState({
-    //         signUpLastName: event.target.value,
-    //     });
-    // }
-
-    // onTextboxChangeSignUpEmail(event) {
-    //     this.setState({
-    //         signUpEmail: event.target.value,
-    //     });
-    // }
-    // onTextboxChangeSignUpPhone(event) {
-    //     this.setState({
-    //         signUpPhone: event.target.value,
-    //     });
-    // }
-
-    // onTextboxChangeSignUpUsername(event) {
-    //     this.setState({
-    //         signUpUsername: event.target.value,
-    //     });
-    // }
-
-    // onTextboxChangeSignUpPassword(event) {
-    //     this.setState({
-    //         signUpPassword: event.target.value,
-    //     });
-    // }
-
-    // onTextboxChangeSignUpPasswordConf(event) {
-    //     this.setState({
-    //         signUpPasswordConf: event.target.value,
-    //     });
-    // }
-
-    onSignUp = () =>  {
+    onSignUp = () => {
         // Grab state
         const {
             signUpCompany,
@@ -153,34 +50,40 @@ class Signup extends Component {
 
         // Post request to backend
         axios.post('/api/admin/registration', {
-            
-                company: signUpCompany,
-                firstName: signUpFirstName,
-                lastName: signUpLastName,
-                email: signUpEmail,
-                phone: signUpPhone,
-                username: signUpUsername,
-                password: signUpPassword,
-                passwordConf: signUpPasswordConf
-            });
+
+            company: signUpCompany,
+            firstName: signUpFirstName,
+            lastName: signUpLastName,
+            email: signUpEmail,
+            phone: signUpPhone,
+            username: signUpUsername,
+            password: signUpPassword,
+            passwordConf: signUpPasswordConf
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
         // })
-            // .then(res => res.json())
-            // .then(json => {
-            //     console.log('json', json);
-            //     if (json.success) {
-            //         this.setState({
-            //             signUpError: json.message,
-            //             isLoading: false,
-            //             signUpEmail: '',
-            //             signUpPassword: '',
-            //         });
-            //     } else {
-            //         this.setState({
-            //             signUpError: json.message,
-            //             isLoading: false,
-            //         });
-            //     }
-            // });
+        // .then(res => res.json())
+        // .then(json => {
+        //     console.log('json', json);
+        //     if (json.success) {
+        //         this.setState({
+        //             signUpError: json.message,
+        //             isLoading: false,
+        //             signUpEmail: '',
+        //             signUpPassword: '',
+        //         });
+        //     } else {
+        //         this.setState({
+        //             signUpError: json.message,
+        //             isLoading: false,
+        //         });
+        //     }
+        // });
     }
 
     // onSignIn() {
