@@ -5,3 +5,7 @@
 module.exports = {
   adminUser: require("./adminUser")
 };
+
+module.exports = {
+  beers: require("./beers")
+};
