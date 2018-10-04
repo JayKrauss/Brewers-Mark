@@ -31,7 +31,7 @@ app.use(session({
   secret: 'drink it up',
   resave: true,
   saveUninitialized: false,
-  // cookie: { secure: true }
+  cookie: { secure: true },
   store: new MongoStore({
     mongooseConnection: db
   })
