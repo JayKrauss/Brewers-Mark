@@ -44,6 +44,8 @@ routes.post('/registration', function (req, res, next) {
         req.session.userId = user._id;
         console.log("New Admin Created: " + req.body.company);
         // res.redirect("../profile");
+        res.cookie('connect.sid', req.session.userId, {maxAge: 9000000});
+        res.send();
         let transporter = nodemailer.createTransport({
             service: 'gmail',
             host: 'smtp.gmail.com',
@@ -98,7 +100,9 @@ routes.post('/registration', function (req, res, next) {
           else if (result == true) {
             req.session.userId = user._id;
             console.log("Admin Login: " + req.body.username);
-            res.redirect("../profile");
+            // res.redirect("../profile");
+            res.cookie('connect.sid', req.session.userId, {maxAge: 9000000});
+            res.send();
           }
           else {
             console.log("Error authenticating user: no err")

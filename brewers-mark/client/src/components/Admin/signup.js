@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+// import adminAPI from "../../../routes/API/adminRoute.js";
 import axios from 'axios';
 
 class Signup extends Component {
     constructor(props) {
         super(props);
     }
-
     state = {
         // isLoading: true,
-        // session:''
+        session:'',
         signUpError: '',
         signInError: '',
         signInUsername: '',
@@ -30,7 +30,8 @@ class Signup extends Component {
         });
     };
 
-    onSignUp = () => {
+    onSignUpSubmit = () => {
+        // event.preventDefault();
         // Grab state
         const {
             signUpCompany,
@@ -63,6 +64,7 @@ class Signup extends Component {
         .then(function (response) {
             console.log(response);
         })
+        
         .catch(function (error) {
             console.log(error);
         });
@@ -86,16 +88,19 @@ class Signup extends Component {
         // });
     }
 
-    // onSignIn() {
-    //     // Grab state
-    //     const {
-    //         signInUsername,
-    //         signInPassword,
-    //     } = this.state;
+    onSignInSubmit() {
+        // Grab state
+        const {
+            signInUsername,
+            signInPassword,
+        } = this.state;
 
-    //     this.setState({
-    //         isLoading: true,
-    //     });
+        this.setState({
+            isLoading: true,
+        });
+        console.log(this.state);
+    };
+
 
     //     // Post request to backend
     //     fetch('/api/admin.js', {
@@ -234,7 +239,7 @@ class Signup extends Component {
                     value={this.state.signUpPasswordConf}
                     onChange={this.handleInputChange}
                 /><br />
-                <button onClick={this.onSignUp}>Sign Up</button>
+                <button onClick={this.onSignUpSubmit}>Sign Up</button>
             </div>
 
         </div>
