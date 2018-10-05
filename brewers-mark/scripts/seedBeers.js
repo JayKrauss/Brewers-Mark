@@ -1,5 +1,6 @@
-const mongoose = require("mongoose");
-const db = require("../models");
+// const mongoose = require("mongoose");
+// const db = require("../models");
+
 
 var allBeers = {
     "items": [
@@ -23507,16 +23508,18 @@ var allBeers = {
     ]
 };
 
+const trimmedBeers = allBeers.items.map(item => Object.assign({}, item.beer, item.brewery));
 
-mongoose.connect(
-    process.env.MONGODB_URI ||
-    "mongodb://localhost/brewersmarkbeers"
-);
+
+// mongoose.connect(
+//     process.env.MONGODB_URI ||
+//     "mongodb://localhost/brewersmarkbeers"
+// );
 
 $(document).ready(function () {
 
     $("#test").on("click", function () {
         console.log("clicky");
-        console.log(allBeers.items);
+        console.log(trimmedBeers);
     });
 });
