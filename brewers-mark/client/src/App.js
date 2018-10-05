@@ -7,8 +7,14 @@ import {
 } from 'react-router-dom'
 import Home from './components/Home/home.js'
 import Glass from './components/Glass/Glass.js'
-import BottlesNav from './components/Bottles/bottlesexport.js'
-import BeerList from './components/BeerList/tabsexport'
+import IPABottlesNav from './components/Bottles/IPAbottlesexport'
+import AleBottlesNav from './components/Bottles/alebottlesexport'
+import LagerBottlesNav from './components/Bottles/lagerbottlesexport'
+import StoutBottlesNav from './components/Bottles/stoutbottlesexport'
+import IPABeerList from './components/BeerList/IPAtabsexport'
+import StoutBeerList from './components/BeerList/stouttabsexport'
+import AleBeerList from './components/BeerList/aletabsexport'
+import LagerBeerList from './components/BeerList/lagertabsexport'
 import Survey from './components/Survey/survey.js'
 import Admin from './components/Admin/admin.js'
 import Signup from './components/Admin/signup.js'
@@ -20,8 +26,14 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/glass" component={Glass} />
-        <Route exact path="/IPA" component={BottlesNav} />
-        <Route exact path="/beerlist" component={BeerList} />
+        <Route exact path="/IPA" component={IPABottlesNav} />
+        <Route exact path="/lager" component={LagerBottlesNav} />
+        <Route exact path="/ale" component={AleBottlesNav} />
+        <Route exact path="/stout" component={StoutBottlesNav} />
+        <Route exact path="/IPAbeerlist" component={IPABeerList} />
+        <Route exact path="/lagerbeerlist" component={LagerBeerList} />
+        <Route exact path="/stoutbeerlist" component={StoutBeerList} />
+        <Route exact path="/alebeerlist" component={AleBeerList} />
         <Route exact path="/survey" component={Survey} />
         <Route exact path="/admin" component={Admin} />
         <Route exact path="/signup" component={Signup} />
