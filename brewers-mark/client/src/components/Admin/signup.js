@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import adminAPI from "../../../routes/API/adminRoute.js";
 import axios from 'axios';
+import cookie from 'react-cookies';
 
 class Signup extends Component {
     constructor(props) {
