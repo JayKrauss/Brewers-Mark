@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const routes = require("./routes");
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -22,6 +23,7 @@ db.once('open', function () {
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
+app.use(cookieParser());
 
 //use sessions for tracking logins
  app.set('trust proxy', 1) // trust first proxy

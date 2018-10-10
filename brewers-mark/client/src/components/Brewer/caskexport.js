@@ -6,7 +6,7 @@ import $ from 'jquery';
 class BrewerNav extends Component {
 
     state = {
-      brewers: [{title:'IPA', href:'/IPA'}, {title:'LAGER',href:'link2'}, {title:'ALE',href:'link3'}, {title:'STOUT',href:'link4'}],
+      brewers: [{title:'IPA', href:'/IPA'}, {title:'SOURS',href:'sour'}, {title:'LAGERS',href:'lager'}, {title:'STOUT',href:'stout'}],
     };
     
     render() {

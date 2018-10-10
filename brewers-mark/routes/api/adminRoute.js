@@ -7,6 +7,8 @@ const adminUser = require("../../models/adminUser.js");
 //POST route on registration/login on click "submit"- creates new User
 routes.post('/registration', function (req, res, next) {
   console.log("HERE");
+  console.log(req.cookies['connect.sid']);
+
   // confirm that user typed same password twice
   if (req.body.password !== req.body.passwordConf) {
     var err = new Error('Passwords do not match.');
@@ -116,7 +118,8 @@ routes.post('/registration', function (req, res, next) {
 
 // GET route after registering
 routes.get('/profile', function (req, res, next) {
-  User.findById(req.session.userId)
+  var userId = req.cookies['connect.sid'];
+  adminUser.findById(userId)
     .exec(function (error, user) {
       if (error) {
         return next(error);
@@ -130,7 +133,7 @@ routes.get('/profile', function (req, res, next) {
         }
 
         else {
-          return res.send('<h1>Name: </h1>' + user.username + '<h2>Mail: </h2>' + user.email + '<br><a type="button" href="/logout">Logout</a>')
+          return res.json(user);
         }
       }
     });
