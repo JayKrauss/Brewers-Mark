@@ -7,5 +7,5 @@ module.exports = {
 };
 
 module.exports = {
-  beers: require("./beers")
+  Beer: require("./beers")
 };

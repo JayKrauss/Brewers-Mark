@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 
 // Save a reference to the Schema constructor
@@ -110,7 +110,6 @@ adminUserSchema.pre('save', function (next) {
 
 // This creates our model from the above schema, using mongoose's model method
 const adminUser = mongoose.model("Users", adminUserSchema);
-console.log(User);
 
 // Export the User model
 module.exports = adminUser;

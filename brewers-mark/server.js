@@ -29,7 +29,7 @@ const logger = require('morgan');
 const mongoose = require("mongoose");
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-const routes = require("./routeservers");
+const routes = require("./routes");
 
 const app = express();
 

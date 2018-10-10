@@ -1,8 +1,8 @@
-// const mongoose = require("mongoose");
-// const db = require("../models");
+const mongoose = require("mongoose");
+const db = require("../models");
 
 
-var allBeers = {
+allBeers = {
     "items": [
         {
             "total_user_count": 0,
@@ -23508,18 +23508,30 @@ var allBeers = {
     ]
 };
 
-const trimmedBeers = allBeers.items.map(item => Object.assign({}, item.beer, item.brewery));
+const trimmedBeers = allBeers.items.map(item => Object.assign({ total_count: item.total_count }, item.beer, item.brewery));
 
 
-// mongoose.connect(
-//     process.env.MONGODB_URI ||
-//     "mongodb://localhost/brewersmarkbeers"
-// );
+mongoose.connect(
+    process.env.MONGODB_URI ||
+    "mongodb://localhost/brewersmarkbeers"
+);
 
-$(document).ready(function () {
+// $(document).ready(function () {
 
-    $("#test").on("click", function () {
-        console.log("clicky");
-        console.log(trimmedBeers);
+//     $("#test").on("click", function () {
+//         console.log("clicky");
+//         console.log(trimmedBeers);
+//     });
+// });
+
+db.Beer
+    .remove({})
+    .then(() => db.Beer.collection.insertMany(trimmedBeers))
+    .then(data => {
+        console.log(data.result.n + " records inserted!");
+        process.exit(0);
+    })
+    .catch(err => {
+        console.error(err);
+        process.exit(1);
     });
-});
