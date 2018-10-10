@@ -8,7 +8,7 @@ import IPAmove from './IPAmove.js'
 class IPABottlesNav extends Component {
 
     state = {
-      bottles: [{title:'English IPA', href:'link1'}, {title:'West Coast IPA',href:'link2'}, {title:'East Coast IPA',href:'link3'}, {title:'Double IPA',href:'link4'}, {title:'Triple IPA',href:'link5'}, {title:'Session IPA',href:'link6'}, {title:'Black IPA',href:'link7'}, {title:'Belgian IPA',href:'link8'}, {title:'Grapefruit IPA',href:'link9'}],
+      bottles: [{title:'New England IPA', href:'/'}, {title:'NE Conan IPA',href:'/'}, {title:'NE Manchester IPA',href:'/'}, {title:'Double IPA',href:'/'}, {title:'Triple IPA',href:'/'}, {title:'Session IPA',href:'/'}, {title:'Others',href:'/'}],
     };
 
     componentDidMount(){

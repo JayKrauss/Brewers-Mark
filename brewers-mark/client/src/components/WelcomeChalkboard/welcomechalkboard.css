@@ -16,7 +16,7 @@
 }
 
 #chainsign {
-    width: auto;
+    width: 10rem;
     position: absolute ;
     top: -10%;
     transition: transform 5s ease-in;
@@ -25,4 +25,8 @@
 
 #chainsign .move {
     transform: translate3d(0px, -470px, 0px);
+}
+
+#welcomesign{
+    width: 33rem;
 }
