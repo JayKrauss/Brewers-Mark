@@ -36,7 +36,7 @@ function bubbles() {
   
 class BeerList extends Component {
     state = {
-      tab:[{title:'Tropical IPA', url:'link?', div:'tab'},{title:'NonFizz IPA', url:'link?', div:'tab'},{title:'This IPA', url:'link?', div:'tab'},{title:'That IPA', url:'link?', div:'tab'},{title:'My IPA', url:'link?', div:'tab'},{title:'Your IPA', url:'link?', div:'tab'},{title:'What IPA', url:'link?', div:'tab'},{title:'Why IPA', url:'link?', div:'tab'},{title:'Whos IPA', url:'link?', div:'tab'},{title:'When IPA', url:'link?', div:'tab'},{title:'Now IPA', url:'link?', div:'tab'}]
+      tab:[{title:'Tropical IPA', url:'link?', div:'tab'},{title:'NonFizz IPA', url:'link?', div:'tab'},{title:'This IPA', url:'link?', div:'tab'},{title:'That IPA', url:'link?', div:'tab'},{title:'My IPA', url:'link?', div:'tab'},{title:'Your IPA', url:'link?', div:'tab'},{title:'What IPA', url:'link?', div:'tab'},{title:'Why IPA', url:'link?', div:'tab'},{title:'Whos IPA', url:'link?', div:'tab'},{title:'When IPA', url:'link?', div:'tab'}],
     };
 
     componentDidMount(){
@@ -50,30 +50,42 @@ class BeerList extends Component {
       
     render() {
       return(
-        
-<div id='tabnav'>
-<center>
+<div class="carrousel">					
+			<input type="radio" name="slides" id="radio-1" checked />
+			<input type="radio" name="slides" id="radio-2" />
+			<input type="radio" name="slides" id="radio-3" />
+			<input type="radio" name="slides" id="radio-4" />
+	<ul class="slides">        
+        <li class="slide">
         <TabList>
             {this.state.tab.map(tab => {
               return (
-                  <div className='container'>
-                  <div className='row'>
-                  <div className='col-3'>
                 <TabBtn
                   key={tab.title}
                   title={tab.title}
                   href={tab.href}
-                   /></div>
-                   <div className='col-3'>
-                    <h1>BEER NAME?!</h1>
-                   </div>
-                   </div>
-                   </div>
+                   />
               );
             })}
           </TabList>
-        </center>
-    </div>
+           </li>
+        <li class="slide">
+        <h1>Tab 2</h1>
+           </li>
+        <li class="slide">
+        <h1>Tab 3</h1>
+           </li>
+        <li class="slide">
+        <h1>Tab 4</h1>
+           </li>
+			</ul>
+			<div class="slidesNavigation">
+				<label for="radio-1" id="dotForRadio-1"></label>
+				<label for="radio-2" id="dotForRadio-2"></label>
+				<label for="radio-3" id="dotForRadio-3"></label>
+				<label for="radio-4" id="dotForRadio-4"></label>
+			</div>
+</div>       
 
       )}
 }
