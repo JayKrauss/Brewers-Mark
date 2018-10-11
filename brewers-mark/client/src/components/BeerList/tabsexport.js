@@ -34,13 +34,10 @@ function bubbles() {
       }
   }
   
-class LagerBeerList extends Component {
-
+class BeerList extends Component {
     state = {
       tab:[{title:'Tropical IPA', url:'link?', div:'tab'},{title:'NonFizz IPA', url:'link?', div:'tab'},{title:'This IPA', url:'link?', div:'tab'},{title:'That IPA', url:'link?', div:'tab'},{title:'My IPA', url:'link?', div:'tab'},{title:'Your IPA', url:'link?', div:'tab'},{title:'What IPA', url:'link?', div:'tab'},{title:'Why IPA', url:'link?', div:'tab'},{title:'Whos IPA', url:'link?', div:'tab'},{title:'When IPA', url:'link?', div:'tab'},{title:'Now IPA', url:'link?', div:'tab'}]
     };
-
-    
 
     componentDidMount(){
         $('body').css('background-image' , 'url(./beerlistback.png)')
@@ -59,18 +56,26 @@ class LagerBeerList extends Component {
         <TabList>
             {this.state.tab.map(tab => {
               return (
+                  <div className='container'>
+                  <div className='row'>
+                  <div className='col-3'>
                 <TabBtn
                   key={tab.title}
                   title={tab.title}
                   href={tab.href}
-                   />
+                   /></div>
+                   <div className='col-3'>
+                    <h1>BEER NAME?!</h1>
+                   </div>
+                   </div>
+                   </div>
               );
             })}
           </TabList>
-</center>
-          </div>
+        </center>
+    </div>
 
       )}
 }
 
-export default LagerBeerList;
+export default BeerList;

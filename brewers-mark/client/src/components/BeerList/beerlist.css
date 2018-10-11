@@ -3,6 +3,7 @@
     position: absolute;
     top: 25%;
     left: 10%;
+    background-attachment: fixed;
 }
 
 .bubble {
