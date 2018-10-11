@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 // import adminAPI from "../../../routes/API/adminRoute.js";
 import axios from 'axios';
 import cookie from 'react-cookies';
+import Input from '../Form';
+import FormBtn from '../Form';
+
 
 class Signup extends Component {
     constructor(props) {
         super(props);
     }
     state = {
-        // isLoading: true,
-        session:'',
+        isLoading: false,
+        session: '',
         signUpError: '',
         signInError: '',
         signInUsername: '',
@@ -62,10 +65,10 @@ class Signup extends Component {
             password: signUpPassword,
             passwordConf: signUpPasswordConf
         })
-        .then(function (response) {
+        .then((response) => {
             console.log(response);
+            this.props.history.push('/profile');
         })
-        
         .catch(function (error) {
             console.log(error);
         });
@@ -89,18 +92,32 @@ class Signup extends Component {
         // });
     }
 
-    onSignInSubmit() {
+    onSignInSubmit = () => {
         // Grab state
         const {
             signInUsername,
-            signInPassword,
+            signInPassword
         } = this.state;
 
         this.setState({
             isLoading: true,
         });
         console.log(this.state);
+
+
+        axios.post('/api/admin/registration', {
+            username: signInUsername,
+            password: signInPassword
+        })
+            .then((response) => {
+                console.log(response);
+                this.props.history.push('/profile');
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
     };
+
 
 
     //     // Post request to backend
@@ -181,7 +198,7 @@ class Signup extends Component {
                     onChange={this.handleInputChange}
                 />
                 <br />
-                <button onClick={this.onSignIn}>Sign In</button>
+                <button onClick={this.onSignInSubmit}>Sign In</button>
             </div>
             <br />
             <br />
