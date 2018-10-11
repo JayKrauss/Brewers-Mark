@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const bcrypt = require('bcryptjs');
 
 
-// Save a reference to the Schema constructor
+// Saving a reference to the Schema constructor
 const Schema = mongoose.Schema;
 
-// Using the Schema constructor, create a new UserSchema object
-// This is similar to a Sequelize model
+
+// Schema constructor that creates a new UserSchema object
 const adminUserSchema = new Schema({
   company: {
     type: String
@@ -30,7 +30,6 @@ const adminUserSchema = new Schema({
 
   phone: {
     type: String
-
     // validate: {
     //   validator: function(v) {
     //     return /\d{3}-\d{3}-\d{4}/.test(v);
@@ -72,7 +71,7 @@ const adminUserSchema = new Schema({
   
 });
 
-//hashing a password before saving it to the database
+//hashing password before saving it to the dat
 adminUserSchema.pre('save', function (next) {
   var user = this;
   bcrypt.hash(user.password, 10, function (err, hash) {
@@ -84,6 +83,7 @@ adminUserSchema.pre('save', function (next) {
   })
 });
 
+//hashing passwordConf before saving it to the database
 adminUserSchema.pre('save', function (next) {
   var user = this;
   bcrypt.hash(user.passwordConf, 10, function (err, hash) {
@@ -95,6 +95,7 @@ adminUserSchema.pre('save', function (next) {
   })
 });
 
+<<<<<<< HEAD
 // UserSchema.methods.generateHash = function(password) {
   //   return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
   // };
@@ -110,6 +111,11 @@ adminUserSchema.pre('save', function (next) {
 
 // This creates our model from the above schema, using mongoose's model method
 const adminUser = mongoose.model("Users", adminUserSchema);
+=======
+// Model created from the above schema, using mongoose's model method
+const adminUser = mongoose.model("adminUser", adminUserSchema);
+console.log(adminUser);
+>>>>>>> master
 
-// Export the User model
+// Exporting the adminUser model
 module.exports = adminUser;

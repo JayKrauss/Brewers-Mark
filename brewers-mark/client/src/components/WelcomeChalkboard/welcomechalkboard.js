@@ -14,7 +14,7 @@ componentDidMount(){
     <div id='wcbackground'>
     <center>
         <div id='chainsign'>
-        <img src={chainsign} />
+        <img id='welcomesign' src={chainsign} />
         </div>
     </center>
     </div>

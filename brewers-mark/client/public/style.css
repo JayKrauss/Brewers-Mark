@@ -9,7 +9,6 @@ body{
     background-repeat: no-repeat;
     background: black;
     background-size: cover;
-    overflow: hidden;
 }
 #chainsign {
     width: auto;

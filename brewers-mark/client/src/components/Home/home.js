@@ -3,6 +3,7 @@ import Landing from '../Landing/landing.js';
 import BrewerNav from '../Brewer/caskexport.js'
 import WelcomeChalkboard from '../WelcomeChalkboard/welcomechalkboard.js';
 import SlideBoard from '../WelcomeChalkboard/SlideBoard.js'
+import Chalk from '../Chalk/chalk.js'
 import move from './move.js'
 import $ from 'jquery'; 
 import './home.css';
@@ -10,7 +11,7 @@ import './home.css';
 class Home extends React.Component {
 
   componentDidMount(){
-    $('body').css('background-image' , 'url(./growler2.png)');
+    $('body').css('background-image' , 'url(./growler3.png)');
 
     function timedMove(){
     setTimeout(function () {
@@ -33,7 +34,7 @@ class Home extends React.Component {
       <br />
       <Landing />
     </div>
-    <div className='col-3'></div>
+    <div className='col-3'><Chalk /></div>
     </div>
 </div>
 );

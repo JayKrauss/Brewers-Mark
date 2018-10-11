@@ -34,7 +34,7 @@ function bubbles() {
       }
   }
   
-class BeerList extends Component {
+class LagerBeerList extends Component {
 
     state = {
       tab:[{title:'Tropical IPA', url:'link?', div:'tab'},{title:'NonFizz IPA', url:'link?', div:'tab'},{title:'This IPA', url:'link?', div:'tab'},{title:'That IPA', url:'link?', div:'tab'},{title:'My IPA', url:'link?', div:'tab'},{title:'Your IPA', url:'link?', div:'tab'},{title:'What IPA', url:'link?', div:'tab'},{title:'Why IPA', url:'link?', div:'tab'},{title:'Whos IPA', url:'link?', div:'tab'},{title:'When IPA', url:'link?', div:'tab'},{title:'Now IPA', url:'link?', div:'tab'}]
@@ -73,4 +73,4 @@ class BeerList extends Component {
       )}
 }
 
-export default BeerList;
+export default LagerBeerList;
