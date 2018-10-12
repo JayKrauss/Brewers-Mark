@@ -1,6 +1,48 @@
 const db = require("../models");
 
+module.exports = {
+    findAll: function (req, res) {
+        db.Beer
+            .find(req.body)
+            .sort({ total_count: -1 })
+            .then(beers => res.json(beers))
+            .catch(err => res.status(422).json(err));
+    },
 
+    findById: function (req, res) {
+        db.Beer
+            .find({ bid: req.params.id} )
+            .then(beer => res.json(beer))
+            .catch(err => res.status(422).json(err));
+    },
+
+    findName: function (req, res) {
+        db.Beer
+            .find({ beer_name: `/${req.params.name}/` })
+            .then(beer => res.json(beer))
+            .catch(err => res.status(422).json(err));
+    },
+
+    findRandom: function (req, res) {
+        db.Beer
+            .aggregate([{ $sample: { size: 1 } }])
+            .then(random => res.json(random))
+            .catch(err => res.status(422).json(err));
+    }
+
+    /*
+
+    ADD ROUTES FOR PUT AND DELETE:
+
+    PUT: attach beer id to specific user's favorites
+
+    DELETE: remove specific beer id (bid in mongo) from list
+
+
+    */
+
+
+}
 
 
 

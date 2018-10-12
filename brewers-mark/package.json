@@ -21,12 +21,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-<<<<<<< HEAD
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.17.2",
-=======
     "body-parser": "^1.18.3",
->>>>>>> master
     "compass": "^0.1.1",
     "connect-mongo": "^2.0.1",
     "cookie-parser": "^1.4.3",
@@ -35,15 +30,10 @@
     "gsap": "^2.0.2",
     "if-env": "^1.0.4",
     "jquery": "^3.3.1",
-<<<<<<< HEAD
-    "mongoose": "^5.0.17",
-    "morgan": "^1.9.1",
-=======
     "mongoose": "^5.3.1",
     "morgan": "^1.9.1",
     "nodemailer": "^4.6.8",
     "react-cookie": "^3.0.4",
->>>>>>> master
     "react-router": "^4.3.1",
     "react-transition-group": "^2.5.0",
     "whatwg-fetch": "^3.0.0"
