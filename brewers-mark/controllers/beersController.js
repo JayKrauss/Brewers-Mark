@@ -9,6 +9,7 @@ module.exports = {
             .then(beers => res.json(beers))
             .catch(err => res.status(422).json(err));
     },
+    
     findAll: function (req, res) {
         db.Beer
             .find(req.query)
