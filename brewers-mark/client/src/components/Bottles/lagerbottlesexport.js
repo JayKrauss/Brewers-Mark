@@ -23,9 +23,11 @@ class LagerBottlesNav extends Component {
       
         IPAtimedMove();
         }
+        
         handleClick = beer => {
           beerAPI.getMultiple(beer)
-            .then(res => console.log(res));
+            .then(res => this.props.setBeerList(res.data))
+            .then(() => this.props.history.push("/beerlist"));
         }
   
       render() {

@@ -27,7 +27,9 @@ class Glass extends React.Component {
       </div>
       <div className='row'>
       <div className='col-3'>
-        <div id='leftinfo'></div>
+        <div id='leftinfo'>
+
+        </div>
       </div>
       <div id='mainglass' className='col-6'>
             <div id="containerbeer">
@@ -39,6 +41,7 @@ class Glass extends React.Component {
       </div>
       <div className='col-3'>
         <div id='rightinfo'>
+        
         </div>
       </div>
       </div>

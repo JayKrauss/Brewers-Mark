@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import './app.css';
 import {
   BrowserRouter as Router,
@@ -17,24 +17,37 @@ import Admin from './components/Admin/admin.js'
 import Signup from './components/Admin/signup.js'
 import Profile from './components/Profile/profile.js'
 
-const App = () => (
-  <Router>
-    <div id='display' className='container-fluid'>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/glass" component={Glass} />
-        <Route exact path="/IPA" component={IPABottlesNav} />
-        <Route exact path="/lager" component={LagerBottlesNav} />
-        <Route exact path="/sour" component={SourBottlesNav} />
-        <Route exact path="/stout" component={StoutBottlesNav} />
-        <Route exact path="/beerlist" component={BeerList} />
-        <Route exact path="/survey" component={Survey} />
-        <Route exact path="/admin" component={Admin} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/profile" component={Profile} />
-      </Switch>
-</div>
-  </Router>
-);
 
-export default App;
+class App extends Component {
+  state = {
+    beerList: [],
+    beerID:[]
+  }
+
+  setBeerList = beers => {
+    this.setState({ beerList: beers });
+  }
+  render() {
+    return (
+      <Router>
+        <div id='display' className='container-fluid'>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/glass" component={Glass} />
+            <Route exact path="/IPA" component={(props) => <IPABottlesNav setBeerList={this.setBeerList} {...props} />} />
+            <Route exact path="/lager" component={(props) => <LagerBottlesNav setBeerList={this.setBeerList} {...props} />} />
+            <Route exact path="/sour" component={(props) => <SourBottlesNav setBeerList={this.setBeerList} {...props} />} />
+            <Route exact path="/stout" component={(props) => <StoutBottlesNav setBeerList={this.setBeerList} {...props} />} />
+            <Route exact path="/beerlist" component={(props) => <BeerList beerList={this.state.beerList}  {...props} />} />
+            <Route exact path="/survey" component={Survey} />
+            <Route exact path="/admin" component={Admin} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/profile" component={Profile} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
+}
+
+  export default App;
