@@ -4,11 +4,12 @@ import BottlesBtn from './bottles.js'
 import $ from 'jquery'; 
 import IPAchainsign from '../../assets/images/IPAchainsign.png';
 import IPAmove from './IPAmove.js'
+import beerAPI from '../../utils/beerAPI';
 
 class LagerBottlesNav extends Component {
 
     state = {
-      bottles: [{title:'American Light Lager', href:'/'}, {title:'Czech Lager',href:'/'}, {title:'Kolsch Lager',href:'/'}, {title:'Dark European Lager',href:'/'}, {title:'Pilsner',href:'/'}, {title:'Others',href:'/'}],
+      bottles: [{title:'American Light Lager', href:'/', parent:'Lager', child:'American'}, {title:'Czech Lager',href:'/', parent:'Czech', child:'Czech'}, {title:'Kolsch Lager',href:'/', parent:'Kolsch', child:'Kolsch'}, {title:'Dark European Lager',href:'/', parent:'Lager', child:'European'}, {title:'Pilsner',href:'/', parent:'Pilsner', child:'Pilsner'}, {title:'Others',href:'/'}],
     };
 
     componentDidMount(){
@@ -22,27 +23,33 @@ class LagerBottlesNav extends Component {
       
         IPAtimedMove();
         }
-      
-    render() {
-      return(
+        handleClick = beer => {
+          beerAPI.getMultiple(beer)
+            .then(res => console.log(res));
+        }
   
-    <div id='bottlenav'>
-    <center>
-      <img src={IPAchainsign} id='IPAchainsign'/>
-    <BottlesList>
-        {this.state.bottles.map(bottles => {
-          return (
-            <BottlesBtn
-              key={bottles.title}
-              title={bottles.title}
-              href={bottles.href}
-               />
-          );
-        })}
-      </BottlesList>
-      </center>
-      </div>
-      )}
-}
-
+      render() {
+        return(
+    
+      <div id='bottlenav'>
+      <center>
+        <img src={IPAchainsign} id='IPAchainsign'/>
+      <BottlesList>
+          {this.state.bottles.map(bottles => {
+            return (
+              <BottlesBtn
+                key={bottles.title}
+                title={bottles.title}
+                href={bottles.href}
+                parent={bottles.parent}
+                child={bottles.child}
+                onClick={this.handleClick}
+                 />
+            );
+          })}
+        </BottlesList>
+        </center>
+        </div>
+        )}
+  }
 export default LagerBottlesNav;

@@ -4,11 +4,12 @@ import BottlesBtn from './bottles.js'
 import $ from 'jquery'; 
 import IPAchainsign from '../../assets/images/IPAchainsign.png';
 import IPAmove from './IPAmove.js'
+import beerAPI from '../../utils/beerAPI';
 
 class SourBottlesNav extends Component {
 
     state = {
-      bottles: [{title:'Fruited Sours', href:'/'}, {title:'Berliner Sours',href:'/'}, {title:'Gose',href:'/'}, {title:'Others',href:'/'}],
+      bottles: [{title:'Fruited Sours', href:'/', parent:'Sour', child:'Ale'}, {title:'Berliner Sours',href:'/', parent:'Sour', child:'Berliner'}, {title:'Gose',href:'/', parent:'Sour', child:'Gose'}, {title:'Others',href:'/'}],
     };
 
     componentDidMount(){
@@ -23,26 +24,33 @@ class SourBottlesNav extends Component {
         IPAtimedMove();
         }
       
-    render() {
-      return(
+        handleClick = beer => {
+          beerAPI.getMultiple(beer)
+            .then(res => console.log(res));
+        }
   
-    <div id='bottlenav'>
-    <center>
-      <img src={IPAchainsign} id='IPAchainsign'/>
-    <BottlesList>
-        {this.state.bottles.map(bottles => {
-          return (
-            <BottlesBtn
-              key={bottles.title}
-              title={bottles.title}
-              href={bottles.href}
-               />
-          );
-        })}
-      </BottlesList>
-      </center>
-      </div>
-      )}
-}
-
+      render() {
+        return(
+    
+      <div id='bottlenav'>
+      <center>
+        <img src={IPAchainsign} id='IPAchainsign'/>
+      <BottlesList>
+          {this.state.bottles.map(bottles => {
+            return (
+              <BottlesBtn
+                key={bottles.title}
+                title={bottles.title}
+                href={bottles.href}
+                parent={bottles.parent}
+                child={bottles.child}
+                onClick={this.handleClick}
+                 />
+            );
+          })}
+        </BottlesList>
+        </center>
+        </div>
+        )}
+  }
 export default SourBottlesNav;
