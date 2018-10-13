@@ -9,14 +9,6 @@ routes.post('/registration', function (req, res, next) {
   console.log("HERE");
   console.log(req.cookies['connect.sid']);
 
-  // confirm that user typed same password twice
-  if (req.body.password !== req.body.passwordConf) {
-    var err = new Error('Passwords do not match.');
-    err.status = 400;
-    res.send("Passwords do not match. Please confirm password.");
-    return next(err);
-  }
-
   if (req.body.company &&
     req.body.firstName &&
     req.body.lastName &&
@@ -25,7 +17,13 @@ routes.post('/registration', function (req, res, next) {
     req.body.username &&
     req.body.password &&
     req.body.passwordConf) {
-    console.log("HERE2");
+
+      if (req.body.password !== req.body.passwordConf) {
+        var err = new Error('Passwords do not match.');
+        err.status = 400;
+        res.send("Passwords do not match. Please confirm password.");
+        return next(err);
+      }
 
     var adminUserData = {
       company: req.body.company,
@@ -104,7 +102,8 @@ routes.post('/registration', function (req, res, next) {
             console.log("Admin Login: " + req.body.username);
             // res.redirect("../profile");
             res.cookie('connect.sid', req.session.userId, {maxAge: 9000000});
-            res.send();
+            return res.json({});
+
           }
           else {
             console.log("Error authenticating user: no err")
@@ -113,6 +112,7 @@ routes.post('/registration', function (req, res, next) {
       }
     });
   }
+  return res.json({});
 });
 
 
