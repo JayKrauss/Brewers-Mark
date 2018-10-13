@@ -6,7 +6,10 @@ const mongoose = require("mongoose");
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const routes = require("./routes");
+<<<<<<< HEAD
+=======
 const cookieParser = require('cookie-parser');
+>>>>>>> master
 
 const app = express();
 
