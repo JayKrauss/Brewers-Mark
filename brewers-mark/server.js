@@ -6,17 +6,14 @@ const mongoose = require("mongoose");
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const routes = require("./routes");
-<<<<<<< HEAD
-=======
 const cookieParser = require('cookie-parser');
->>>>>>> master
 
 const app = express();
 
 const PORT = process.env.PORT || 3001;
 
 // connect to Mongo Database with Mongoose
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/adminAuthDB", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/brewersmarkbeers", { useNewUrlParser: true });
 var db = mongoose.connection;
 //handle mongo error
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -46,9 +43,7 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Define middleware here
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

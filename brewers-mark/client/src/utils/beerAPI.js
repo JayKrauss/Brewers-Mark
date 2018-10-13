@@ -23,3 +23,15 @@ export default {
   }
 
 };
+
+
+/*
+    beerAPI.getMultiple({
+        beer_style: /attr/,
+        beer_style: /attr/
+    });
+
+
+
+
+*/

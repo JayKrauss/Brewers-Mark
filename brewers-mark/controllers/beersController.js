@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
     findAll: function (req, res) {
         db.Beer
-            .find(req.body)
+            .find({beer_style: req.body.parent, beer_style: req.body.child})            
             .sort({ total_count: -1 })
             .then(beers => res.json(beers))
             .catch(err => res.status(422).json(err));
