@@ -12,7 +12,7 @@ function bubbles() {
       var parentHeight = $(".beertab").height();
       var parentWidth = $(".beertab").width();
 
-      $(".beertab").append(new Array(100).join('<div class="bubble" />'));
+      $(".beertab").append(new Array(100).join('<div className="bubble" />'));
 
       $(".bubble").each(function (i, bubble) {
           animateBubble(bubble);
@@ -36,7 +36,7 @@ function bubbles() {
   
 class BeerList extends Component {
     state = {
-      tab:[{title:'Tropical IPA', url:'link?', div:'tab'},{title:'NonFizz IPA', url:'link?', div:'tab'},{title:'This IPA', url:'link?', div:'tab'},{title:'That IPA', url:'link?', div:'tab'},{title:'My IPA', url:'link?', div:'tab'},{title:'Your IPA', url:'link?', div:'tab'},{title:'What IPA', url:'link?', div:'tab'},{title:'Why IPA', url:'link?', div:'tab'},{title:'Whos IPA', url:'link?', div:'tab'},{title:'When IPA', url:'link?', div:'tab'}],
+      tab:[],
     };
 
     componentDidMount(){
@@ -49,14 +49,27 @@ class BeerList extends Component {
       }
       
     render() {
+        console.log(this.props);
       return(
-<div class="carrousel">					
+        <TabList>
+        {this.props.beerList.map(prop => {
+          return (
+            <TabBtn
+              key={prop.bid}
+              title={prop.beer_name}
+               />
+          );
+        })}
+      </TabList>
+      )
+    }
+/* <div className="carrousel">					
 			<input type="radio" name="slides" id="radio-1" checked />
 			<input type="radio" name="slides" id="radio-2" />
 			<input type="radio" name="slides" id="radio-3" />
 			<input type="radio" name="slides" id="radio-4" />
-	<ul class="slides">        
-        <li class="slide">
+	<ul className="slides">        
+        <li className="slide">
         <TabList>
             {this.state.tab.map(tab => {
               return (
@@ -69,25 +82,24 @@ class BeerList extends Component {
             })}
           </TabList>
            </li>
-        <li class="slide">
+        <li className="slide">
         <h1>Tab 2</h1>
            </li>
-        <li class="slide">
+        <li className="slide">
         <h1>Tab 3</h1>
            </li>
-        <li class="slide">
+        <li className="slide">
         <h1>Tab 4</h1>
            </li>
 			</ul>
-			<div class="slidesNavigation">
-				<label for="radio-1" id="dotForRadio-1"></label>
-				<label for="radio-2" id="dotForRadio-2"></label>
-				<label for="radio-3" id="dotForRadio-3"></label>
-				<label for="radio-4" id="dotForRadio-4"></label>
+			<div className="slidesNavigation">
+				<label htmlFor="radio-1" id="dotForRadio-1"></label>
+				<label htmlFor="radio-2" id="dotForRadio-2"></label>
+				<label htmlFor="radio-3" id="dotForRadio-3"></label>
+				<label htmlFor="radio-4" id="dotForRadio-4"></label>
 			</div>
-</div>       
+</div>        */
 
-      )}
 }
 
 export default BeerList;

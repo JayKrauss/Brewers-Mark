@@ -2,7 +2,12 @@ import React from "react";
 import './bottles.css';
 
 function IPAmove(){
-    document.getElementById("IPAchainsign").classList.add("IPAmove");
+    const sign = document.getElementById("IPAchainsign");
+
+    if (sign) {
+      document.getElementById("IPAchainsign").classList.add("IPAmove");
+    }
+    
   };
   
   export default IPAmove;

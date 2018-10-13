@@ -1,9 +1,9 @@
 
 .beertab {
     overflow: hidden;
-    height: 180px;
-    width: 140px;
-    margin: 50px;
+    height: 160px;
+    width: 120px;
+    margin: 40px;
     border: black solid 2px;
     transform: perspective(170px) rotateX(-30deg);
     transform-origin: center;
