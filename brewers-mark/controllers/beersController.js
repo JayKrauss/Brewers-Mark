@@ -1,9 +1,17 @@
 const db = require("../models");
 
 module.exports = {
+    findAndFilterBeers: function (req, res) {
+        db.Beer
+            .find({ beer_style: new RegExp(req.query.child, "i") })
+            .sort({ total_count: -1 })
+            .then(beers => beers.filter(beer => beer.beer_style.includes(req.query.parent)))
+            .then(beers => res.json(beers))
+            .catch(err => res.status(422).json(err));
+    },
     findAll: function (req, res) {
         db.Beer
-            .find({beer_style: req.body.parent, beer_style: req.body.child})            
+            .find(req.query)
             .sort({ total_count: -1 })
             .then(beers => res.json(beers))
             .catch(err => res.status(422).json(err));
@@ -11,7 +19,7 @@ module.exports = {
 
     findById: function (req, res) {
         db.Beer
-            .find({ bid: req.params.id} )
+            .find({ bid: req.params.id })
             .then(beer => res.json(beer))
             .catch(err => res.status(422).json(err));
     },

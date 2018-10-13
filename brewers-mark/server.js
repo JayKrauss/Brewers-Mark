@@ -39,11 +39,9 @@ app.use(session({
   })
 }));
 
-// Use body-parser for handling form submissions
-app.use(bodyParser.json());
+// Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
+app.use(bodyParser.json());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

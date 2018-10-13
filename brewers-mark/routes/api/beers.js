@@ -6,6 +6,11 @@ router.route("/")
   .get(beersController.findAll);
 //   .post(beersController.create);
 
+// router.get("/v2", function(req, res) {
+//   console.log("we are here")
+// })
+router.route("/v2")
+  .get(beersController.findAndFilterBeers);
 
 // Route /api/beers/random
 router.route("/random")

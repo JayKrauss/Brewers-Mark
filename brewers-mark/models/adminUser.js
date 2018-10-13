@@ -71,33 +71,32 @@
   
 // });
 
-// //hashing password before saving it to the dat
-// adminUserSchema.pre('save', function (next) {
-//   var user = this;
-//   bcrypt.hash(user.password, 10, function (err, hash) {
-//     if (err) {
-//       return next(err);
-//     }
-//     user.password = hash;
-//     next();
-//   })
-// });
+//hashing password before saving it to the dat
+adminUserSchema.pre('save', function (next) {
+  var user = this;
+  bcrypt.hash(user.password, 10, function (err, hash) {
+    if (err) {
+      return next(err);
+    }
+    user.password = hash;
+    next();
+  })
+});
 
-// //hashing passwordConf before saving it to the database
-// adminUserSchema.pre('save', function (next) {
-//   var user = this;
-//   bcrypt.hash(user.passwordConf, 10, function (err, hash) {
-//     if(err) {
-//       return next(err);
-//     }
-//     user.passwordConf = hash
-//     next();
-//   })
-// });
+//hashing passwordConf before saving it to the database
+adminUserSchema.pre('save', function (next) {
+  var user = this;
+  bcrypt.hash(user.passwordConf, 10, function (err, hash) {
+    if(err) {
+      return next(err);
+    }
+    user.passwordConf = hash
+    next();
+  })
+});
 
-// // Model created from the above schema, using mongoose's model method
-// const adminUser = mongoose.model("adminUser", adminUserSchema);
-// console.log(adminUser);
+// Model created from the above schema, using mongoose's model method
+const adminUser = mongoose.model("adminUser", adminUserSchema);
 
-// // Exporting the adminUser model
-// module.exports = adminUser;
+// Exporting the adminUser model
+module.exports = adminUser;
