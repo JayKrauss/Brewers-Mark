@@ -8,17 +8,17 @@ const Schema = mongoose.Schema;
 
 // Schema constructor that creates a new UserSchema object
 const adminUserSchema = new Schema({
-  company: {
-    type: String
-  },
+  // company: {
+  //   type: String
+  // },
 
-  firstName: {
-    type: String
-  },
+  // firstName: {
+  //   type: String
+  // },
 
-  lastName: {
-    type: String
-  },
+  // lastName: {
+  //   type: String
+  // },
 
   email: {
     type: String,
@@ -28,15 +28,15 @@ const adminUserSchema = new Schema({
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
   },
 
-  phone: {
-    type: String
-    // validate: {
-    //   validator: function(v) {
-    //     return /\d{3}-\d{3}-\d{4}/.test(v);
-    //   },
-    //   message: props => `${props.value} is not a valid phone number!`
-    // },
-  },  
+  // phone: {
+  //   type: String
+  //   // validate: {
+  //   //   validator: function(v) {
+  //   //     return /\d{3}-\d{3}-\d{4}/.test(v);
+  //   //   },
+  //   //   message: props => `${props.value} is not a valid phone number!`
+  //   // },
+  // },  
 
   username: {
     type: String,

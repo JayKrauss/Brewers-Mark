@@ -16,7 +16,6 @@ import StoutBeerList from './components/BeerList/stouttabsexport'
 import SourBeerList from './components/BeerList/sourtabsexport'
 import LagerBeerList from './components/BeerList/lagertabsexport'
 import Survey from './components/Survey/survey.js'
-import Admin from './components/Admin/admin.js'
 import Signup from './components/Admin/signup.js'
 import Profile from './components/Profile/profile.js'
 
@@ -35,7 +34,6 @@ const App = () => (
         <Route exact path="/stoutbeerlist" component={StoutBeerList} />
         <Route exact path="/alebeerlist" component={SourBeerList} />
         <Route exact path="/survey" component={Survey} />
-        <Route exact path="/admin" component={Admin} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/profile" component={Profile} />
       </Switch>

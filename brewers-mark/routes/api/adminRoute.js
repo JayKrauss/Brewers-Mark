@@ -9,11 +9,11 @@ routes.post('/registration', function (req, res, next) {
   console.log("HERE");
   console.log(req.cookies['connect.sid']);
 
-  if (req.body.company &&
-    req.body.firstName &&
-    req.body.lastName &&
-    req.body.email &&
-    req.body.phone &&
+  if (req.body.email &&
+  // req.body.company &&
+  //   req.body.firstName &&
+  //   req.body.lastName &&
+    // req.body.phone &&
     req.body.username &&
     req.body.password &&
     req.body.passwordConf) {
@@ -26,11 +26,11 @@ routes.post('/registration', function (req, res, next) {
       }
 
     var adminUserData = {
-      company: req.body.company,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
+      // company: req.body.company,
+      // firstName: req.body.firstName,
+      // lastName: req.body.lastName,
       email: req.body.email,
-      phone: req.body.phone,
+      // phone: req.body.phone,
       username: req.body.username,
       password: req.body.password,
       passwordConf: req.body.passwordConf,
@@ -58,9 +58,9 @@ routes.post('/registration', function (req, res, next) {
         let newAdminEmail = {
           from: '"RVA Brewers Mark" <rvabrewersmark@gmail.com>', // sender address
           to: 'rvabrewersmark@gmail.com', // list of receivers
-          subject: 'New Administrator Added ✔', // Subject line
-          text: 'New Administrator Added', // plain text body
-          html: '<b>New Administrator Added</b>' // html body
+          subject: 'New User Added ✔', // Subject line
+          text: 'New User Added', // plain text body
+          html: '<b>New User Added</b>' // html body
         };
 
         transporter.sendMail(newAdminEmail, (error, info) => {
@@ -85,7 +85,7 @@ routes.post('/registration', function (req, res, next) {
 
     adminUser.findOne({ 'username': username }, function (err, user) {
       if (err) {
-        console.log("Error finding Admin Username: " + err);
+        console.log("Error finding Username: " + err);
         console.log(user.username);
       }
       else {
@@ -99,7 +99,7 @@ routes.post('/registration', function (req, res, next) {
           }
           else if (result == true) {
             req.session.userId = user._id;
-            console.log("Admin Login: " + req.body.username);
+            console.log("User Login: " + req.body.username);
             // res.redirect("../profile");
             res.cookie('connect.sid', req.session.userId, {maxAge: 9000000});
             return res.json({});

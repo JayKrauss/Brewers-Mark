@@ -17,11 +17,11 @@ class Signup extends Component {
         signInError: '',
         signInUsername: '',
         signInPassword: '',
-        signUpCompany: '',
-        signUpFirstName: '',
-        signUpLastName: '',
+        // signUpCompany: '',
+        // signUpFirstName: '',
+        // signUpLastName: '',
         signUpEmail: '',
-        signUpPhone: '',
+        // signUpPhone: '',
         signUpUsername: '',
         signUpPassword: '',
         signUpPasswordConf: '',
@@ -38,70 +38,53 @@ class Signup extends Component {
         // event.preventDefault();
         // Grab state
         const {
-            signUpCompany,
-            signUpFirstName,
-            signUpLastName,
+            // signUpCompany,
+            // signUpFirstName,
+            // signUpLastName,
             signUpEmail,
-            signUpPhone,
+            // signUpPhone,
             signUpUsername,
             signUpPassword,
             signUpPasswordConf,
         } = this.state;
 
-        this.setState({
-            isLoading: true,
-        });
+        // this.setState({
+        //     isLoading: true,
+        // });
         console.log(this.state);
 
         // Post request to backend
         axios.post('/api/admin/registration', {
 
-            company: signUpCompany,
-            firstName: signUpFirstName,
-            lastName: signUpLastName,
+            // company: signUpCompany,
+            // firstName: signUpFirstName,
+            // lastName: signUpLastName,
             email: signUpEmail,
-            phone: signUpPhone,
+            // phone: signUpPhone,
             username: signUpUsername,
             password: signUpPassword,
             passwordConf: signUpPasswordConf
         })
         .then((response) => {
-            console.log(response);
+            // console.log(response);
             this.props.history.push('/profile');
         })
         .catch(function (error) {
             console.log(error);
         });
-        // })
-        // .then(res => res.json())
-        // .then(json => {
-        //     console.log('json', json);
-        //     if (json.success) {
-        //         this.setState({
-        //             signUpError: json.message,
-        //             isLoading: false,
-        //             signUpEmail: '',
-        //             signUpPassword: '',
-        //         });
-        //     } else {
-        //         this.setState({
-        //             signUpError: json.message,
-        //             isLoading: false,
-        //         });
-        //     }
-        // });
     }
 
     onSignInSubmit = () => {
+        // event.preventDefault();
         // Grab state
         const {
             signInUsername,
             signInPassword
         } = this.state;
 
-        this.setState({
-            isLoading: true,
-        });
+        // this.setState({
+        //     isLoading: true,
+        // });
         console.log(this.state);
 
 
@@ -110,46 +93,13 @@ class Signup extends Component {
             password: signInPassword
         })
             .then((response) => {
-                console.log(response);
+                // console.log(response);
                 this.props.history.push('/profile');
             })
             .catch(function (error) {
                 console.log(error);
             })
     };
-
-
-
-    //     // Post request to backend
-    //     fetch('/api/admin.js', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Contenname': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             email: signInUsername,
-    //             password: signInPassword,
-    //         }),
-    //     }).then(res => res.json())
-    //         .then(json => {
-    //             console.log('json', json);
-    //             if (json.success) {
-    //                 setInStorage('the_main_app', { token: json.token });
-    //                 this.setState({
-    //                     signInError: json.message,
-    //                     isLoading: false,
-    //                     signInUsername: '',
-    //                     signInPassword: '',
-    //                     token: json.token,
-    //                 });
-    //             } else {
-    //                 this.setState({
-    //                     signInError: json.message,
-    //                     isLoading: false,
-    //                 });
-    //             }
-    //         });
-    // }
 
     // logout() {
     //     this.setState({
@@ -209,7 +159,7 @@ class Signup extends Component {
                     ) : (null)
                 }
                 <p>Sign Up</p>
-                <input
+                {/* <input
                     name="signUpCompany"
                     placeholder="Brewery Name"
                     value={this.state.signUpCompany}
@@ -226,19 +176,19 @@ class Signup extends Component {
                     placeholder="Last Name"
                     value={this.state.signUpLastName}
                     onChange={this.handleInputChange}
-                /><br />
+                /><br /> */}
                 <input
                     name="signUpEmail"
                     placeholder="Email"
                     value={this.state.signUpEmail}
                     onChange={this.handleInputChange}
                 /><br />
-                <input
+                {/* <input
                     name="signUpPhone"
                     placeholder="Phone Number"
                     value={this.state.signUpPhone}
                     onChange={this.handleInputChange}
-                /><br />
+                /><br /> */}
                 <input
                     name="signUpUsername"
                     placeholder="Username"
