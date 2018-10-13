@@ -97,7 +97,6 @@ adminUserSchema.pre('save', function (next) {
 
 // Model created from the above schema, using mongoose's model method
 const adminUser = mongoose.model("adminUser", adminUserSchema);
-console.log(adminUser);
 
 // Exporting the adminUser model
 module.exports = adminUser;

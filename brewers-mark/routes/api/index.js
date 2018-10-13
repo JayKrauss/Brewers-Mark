@@ -4,6 +4,6 @@ const beerRoutes = require("./beers.js");
 
 // Admin routes
 router.use("/admin", adminSignUpRoute);
-router.use("/beer", beerRoutes);
+router.use("/beers", beerRoutes);
 
 module.exports = router;

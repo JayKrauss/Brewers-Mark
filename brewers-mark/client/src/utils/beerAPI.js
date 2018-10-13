@@ -7,7 +7,7 @@ export default {
   //     }
 
   getMultiple: function (searchData) {
-    return axios.get("/api/beers", searchData);
+    return axios.get("/api/beers/v2", { params: searchData });
   },
 
   getByName: function (name) {

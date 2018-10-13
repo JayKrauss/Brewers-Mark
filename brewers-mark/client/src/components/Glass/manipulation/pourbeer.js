@@ -54,7 +54,7 @@ function bubbles() {
 
 function beerColor() {
   // var EBC = $("#beerebc").attr("value");
-  var EBC = 15;
+let EBC = 25;
     if (EBC <= 11) {
       document.getElementById("beer").style.background="linear-gradient(white, rgb(184, 123, 28, .95),rgb(184, 123, 28, .95),rgb(184, 123, 28, .95), rgb(184, 123, 28, .95),rgb(184, 123, 28, .95))";
       document.getElementById("pour").style.background="linear-gradient(rgb(184, 123, 28), rgb(184, 123, 28),white)";

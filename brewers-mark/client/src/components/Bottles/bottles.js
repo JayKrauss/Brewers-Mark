@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import './bottles.css'
 
 export const BottlesBtn = props => (
-  <button className='btn btn-default bottle'>
+  <button onClick={() => props.onClick({ beer_style: props.parent, child: props.child })} className='btn btn-default bottle'>
         <div>
-          <h4 class='bottlesh4'>{props.title}</h4>
-          <a rel="noreferrer noopener" target="_blank" href={props.href}></a>
+          <h4 className='bottlesh4'>{props.title}</h4>
+          <div rel="noreferrer noopener" target="_blank" href={props.href} parent={props.parent} child={props.child}></div>
         </div>
   </button>
 );

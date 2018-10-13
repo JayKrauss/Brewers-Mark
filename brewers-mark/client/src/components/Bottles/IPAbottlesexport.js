@@ -4,11 +4,12 @@ import BottlesBtn from './bottles.js'
 import $ from 'jquery'; 
 import IPAchainsign from '../../assets/images/IPAchainsign.png';
 import IPAmove from './IPAmove.js'
+import beerAPI from '../../utils/beerAPI';
 
 class IPABottlesNav extends Component {
 
     state = {
-      bottles: [{title:'New England IPA', href:'/'}, {title:'NE Conan IPA',href:'/'}, {title:'NE Manchester IPA',href:'/'}, {title:'Double IPA',href:'/'}, {title:'Triple IPA',href:'/'}, {title:'Session IPA',href:'/'}, {title:'Others',href:'/'}],
+      bottles: [{title:'New England IPA', href:'/', parent:'IPA', child:'New England'}, {title:'Double IPA',href:'/',parent:'IPA', child:'Double'}, {title:'Triple IPA',href:'/', parent:'IPA', child:'Triple'}, {title:'Session IPA',href:'/', parent:'IPA', child:'Session'}, {title:'Others',href:'/'}],
     };
 
     componentDidMount(){
@@ -22,7 +23,12 @@ class IPABottlesNav extends Component {
       
         IPAtimedMove();
         }
-      
+
+      handleClick = beer => {
+        beerAPI.getMultiple(beer)
+          .then(res => console.log(res));
+      }
+
     render() {
       return(
   
@@ -36,6 +42,9 @@ class IPABottlesNav extends Component {
               key={bottles.title}
               title={bottles.title}
               href={bottles.href}
+              parent={bottles.parent}
+              child={bottles.child}
+              onClick={this.handleClick}
                />
           );
         })}
