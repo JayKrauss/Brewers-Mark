@@ -19,7 +19,7 @@ function reverseRotation() {
 function beerPourTimed() {
   document.getElementById("pour").classList.add("pouring");
   setTimeout(function () {
-    beerColor();
+    // beerColor();
     beerRise();
   }, 100);
 }

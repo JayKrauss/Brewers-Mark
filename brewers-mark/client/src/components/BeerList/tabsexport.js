@@ -6,6 +6,8 @@ import TabBtn from './tabs.js'
 import './beerlist.css'
 import css3 from 'compass';
 import axios from "axios";
+import { getISODay } from "date-fns";
+import beerAPI from '../../utils/beerAPI';
 
 function bubbles() {
   var mainTl = new TimelineMax({ paused: false });
@@ -35,6 +37,8 @@ function bubbles() {
   }
 }
 
+let bid;
+
 class BeerList extends Component {
   state = {
     tab: [],
@@ -54,19 +58,26 @@ class BeerList extends Component {
       });
   }
 
+  // handleClick = (bid) => {
+  //   beerAPI.getMultiple(bid)
+  //     .then(() => this.props.history.push("/glass/:id?"));
+  // }
+
   render() {
     console.log(this.props);
     return (
+      <div className='container' id='beerchunk'>
       <TabList>
         {this.props.beerList.map(prop => {
           return (
             <TabBtn
               key={prop.bid}
               title={prop.beer_name}
+              value={prop.bid}
             />
           );
         })}
-      </TabList>
+      </TabList></div>
     )
   }
   /* <div className="carrousel">					

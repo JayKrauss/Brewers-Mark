@@ -1,7 +1,30 @@
+
+#glasstyle, #beertitle, #glassABV, #glassbrewery, #glasstype, #glassrating {
+  color: white;
+  font-size: 16px;
+}
+
+#glassdescription {
+  font-size: 18px;
+  color: white;
+  overflow-y: scroll;
+}
+
+#leftcont, #rightcont {
+  padding-top: 25px;
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
 #mainglass{
 position: absolute;
 bottom: -5%;
 left:25%;
+}
+
+#glassbrewery{
+  font-size: 24px;
+  padding-left: 15%;
 }
 
 #beername {
@@ -12,7 +35,7 @@ left:25%;
 
 #beertitle {
   position: absolute;
-  left: 33%;
+  left: 25%;
   bottom: 10%;
   font-size: 40px;
 }
