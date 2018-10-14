@@ -17,11 +17,9 @@ class Signup extends Component {
         signInError: '',
         signInUsername: '',
         signInPassword: '',
-        signUpCompany: '',
-        signUpFirstName: '',
-        signUpLastName: '',
+        signUpName: '',
+        signUpAge: '',
         signUpEmail: '',
-        signUpPhone: '',
         signUpUsername: '',
         signUpPassword: '',
         signUpPasswordConf: '',
@@ -38,11 +36,9 @@ class Signup extends Component {
         // event.preventDefault();
         // Grab state
         const {
-            signUpCompany,
-            signUpFirstName,
-            signUpLastName,
+            signUpName,
+            signUpAge,
             signUpEmail,
-            signUpPhone,
             signUpUsername,
             signUpPassword,
             signUpPasswordConf,
@@ -56,11 +52,9 @@ class Signup extends Component {
         // Post request to backend
         axios.post('/api/admin/registration', {
 
-            company: signUpCompany,
-            firstName: signUpFirstName,
-            lastName: signUpLastName,
+            name: signUpName,
+            age: signUpAge,
             email: signUpEmail,
-            phone: signUpPhone,
             username: signUpUsername,
             password: signUpPassword,
             passwordConf: signUpPasswordConf
@@ -72,24 +66,6 @@ class Signup extends Component {
         .catch(function (error) {
             console.log(error);
         });
-        // })
-        // .then(res => res.json())
-        // .then(json => {
-        //     console.log('json', json);
-        //     if (json.success) {
-        //         this.setState({
-        //             signUpError: json.message,
-        //             isLoading: false,
-        //             signUpEmail: '',
-        //             signUpPassword: '',
-        //         });
-        //     } else {
-        //         this.setState({
-        //             signUpError: json.message,
-        //             isLoading: false,
-        //         });
-        //     }
-        // });
     }
 
     onSignInSubmit = () => {
@@ -117,39 +93,6 @@ class Signup extends Component {
                 console.log(error);
             })
     };
-
-
-
-    //     // Post request to backend
-    //     fetch('/api/admin.js', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Contenname': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             email: signInUsername,
-    //             password: signInPassword,
-    //         }),
-    //     }).then(res => res.json())
-    //         .then(json => {
-    //             console.log('json', json);
-    //             if (json.success) {
-    //                 setInStorage('the_main_app', { token: json.token });
-    //                 this.setState({
-    //                     signInError: json.message,
-    //                     isLoading: false,
-    //                     signInUsername: '',
-    //                     signInPassword: '',
-    //                     token: json.token,
-    //                 });
-    //             } else {
-    //                 this.setState({
-    //                     signInError: json.message,
-    //                     isLoading: false,
-    //                 });
-    //             }
-    //         });
-    // }
 
     // logout() {
     //     this.setState({
@@ -209,21 +152,21 @@ class Signup extends Component {
                     ) : (null)
                 }
                 <p>Sign Up</p>
-                <input
+                {/* <input
                     name="signUpCompany"
                     placeholder="Brewery Name"
                     value={this.state.signUpCompany}
                     onChange={this.handleInputChange}
-                /><br />
+                /><br /> */}
                 <input
-                    name="signUpFirstName"
+                    name="signUpName"
                     placeholder="First Name"
                     value={this.state.signUpFirstName}
                     onChange={this.handleInputChange}
                 /><br />
                 <input
-                    name="signUpLastName"
-                    placeholder="Last Name"
+                    name="signUpAge"
+                    placeholder="Age"
                     value={this.state.signUpLastName}
                     onChange={this.handleInputChange}
                 /><br />
@@ -233,12 +176,12 @@ class Signup extends Component {
                     value={this.state.signUpEmail}
                     onChange={this.handleInputChange}
                 /><br />
-                <input
+                {/* <input
                     name="signUpPhone"
                     placeholder="Phone Number"
                     value={this.state.signUpPhone}
                     onChange={this.handleInputChange}
-                /><br />
+                /><br /> */}
                 <input
                     name="signUpUsername"
                     placeholder="Username"

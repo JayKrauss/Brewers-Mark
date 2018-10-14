@@ -13,7 +13,6 @@ import LagerBottlesNav from './components/Bottles/lagerbottlesexport'
 import StoutBottlesNav from './components/Bottles/stoutbottlesexport'
 import BeerList from './components/BeerList/tabsexport'
 import Survey from './components/Survey/survey.js'
-import Admin from './components/Admin/admin.js'
 import Signup from './components/Admin/signup.js'
 import Profile from './components/Profile/profile.js'
 
@@ -40,7 +39,6 @@ class App extends Component {
             <Route exact path="/stout" component={(props) => <StoutBottlesNav setBeerList={this.setBeerList} {...props} />} />
             <Route exact path="/beerlist" component={(props) => <BeerList beerList={this.state.beerList}  {...props} />} />
             <Route exact path="/survey" component={Survey} />
-            <Route exact path="/admin" component={Admin} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile" component={Profile} />
           </Switch>
