@@ -14,7 +14,7 @@ class Profile extends Component {
         axios.get('/api/admin/profile')
             .then(res => {
                 console.log(res);
-                this.setState({signUpCompany: res.data.company});
+                this.setState({signUpName: res.data.name});
             
             });
 }
