@@ -94,39 +94,6 @@ class Signup extends Component {
             })
     };
 
-
-
-    //     // Post request to backend
-    //     fetch('/api/admin.js', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Contenname': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             email: signInUsername,
-    //             password: signInPassword,
-    //         }),
-    //     }).then(res => res.json())
-    //         .then(json => {
-    //             console.log('json', json);
-    //             if (json.success) {
-    //                 setInStorage('the_main_app', { token: json.token });
-    //                 this.setState({
-    //                     signInError: json.message,
-    //                     isLoading: false,
-    //                     signInUsername: '',
-    //                     signInPassword: '',
-    //                     token: json.token,
-    //                 });
-    //             } else {
-    //                 this.setState({
-    //                     signInError: json.message,
-    //                     isLoading: false,
-    //                 });
-    //             }
-    //         });
-    // }
-
     // logout() {
     //     this.setState({
     //         isLoading: true,
