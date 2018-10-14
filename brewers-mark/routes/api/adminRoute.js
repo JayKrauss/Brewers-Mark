@@ -4,6 +4,12 @@ const nodemailer = require('nodemailer');
 
 const adminUser = require("../../models/adminUser.js");
 
+routes.get("/me", function (req, res) {
+  console.log(req.session);
+  console.log(req.cookies);
+  console.log(req.user);
+});
+
 //POST route on registration/login on click "submit"- creates new User
 routes.post('/registration', function (req, res, next) {
   console.log("HERE");
@@ -17,12 +23,12 @@ routes.post('/registration', function (req, res, next) {
     req.body.password &&
     req.body.passwordConf) {
 
-      if (req.body.password !== req.body.passwordConf) {
-        var err = new Error('Passwords do not match.');
-        err.status = 400;
-        res.send("Passwords do not match. Please confirm password.");
-        return next(err);
-      }
+    if (req.body.password !== req.body.passwordConf) {
+      var err = new Error('Passwords do not match.');
+      err.status = 400;
+      res.send("Passwords do not match. Please confirm password.");
+      return next(err);
+    }
 
     var adminUserData = {
       name: req.body.firstName,
@@ -41,15 +47,15 @@ routes.post('/registration', function (req, res, next) {
         req.session.userId = user._id;
         console.log("New Admin Created: " + req.body.company);
         // res.redirect("../profile");
-        res.cookie('connect.sid', req.session.userId, {maxAge: 9000000});
+        res.cookie('connect.sid', req.session.userId, { maxAge: 9000000 });
         res.send();
         let transporter = nodemailer.createTransport({
-            service: 'gmail',
-            host: 'smtp.gmail.com',
-            auth: {
-              user: 'rvabrewersmark@gmail.com',
-              pass: 'brewersmark'
-            }
+          service: 'gmail',
+          host: 'smtp.gmail.com',
+          auth: {
+            user: 'rvabrewersmark@gmail.com',
+            pass: 'brewersmark'
+          }
         });
 
         let newAdminEmail = {
@@ -98,7 +104,7 @@ routes.post('/registration', function (req, res, next) {
             req.session.userId = user._id;
             console.log("User Login: " + req.body.username);
             // res.redirect("../profile");
-            res.cookie('connect.sid', req.session.userId, {maxAge: 9000000});
+            res.cookie('connect.sid', req.session.userId, { maxAge: 9000000 });
             return res.json({});
 
           }

@@ -14,15 +14,15 @@ router.route("/v2")
 
 // Route /api/beers/random
 router.route("/random")
-    .get(beersController.findRandom);
+  .get(beersController.findRandom);
 
 
 // Route /api/beers/search/[beerName]
 router.route("/search/:name")
-    .get(beersController.findName);
+  .get(beersController.findName);
 
 
-// Route /api/[bid]
+// Route /api/beers/[bid]
 router
   .route("/:id")
   .get(beersController.findById);
