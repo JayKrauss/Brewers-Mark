@@ -33,7 +33,7 @@ class App extends Component {
         <div id='display' className='container-fluid'>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/glass" component={Glass} />
+            <Route path="/glass/:id?" component={Glass} />
             <Route exact path="/IPA" component={(props) => <IPABottlesNav setBeerList={this.setBeerList} {...props} />} />
             <Route exact path="/lager" component={(props) => <LagerBottlesNav setBeerList={this.setBeerList} {...props} />} />
             <Route exact path="/sour" component={(props) => <SourBottlesNav setBeerList={this.setBeerList} {...props} />} />
