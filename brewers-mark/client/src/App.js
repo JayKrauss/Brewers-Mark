@@ -16,7 +16,6 @@ import Survey from './components/Survey/survey.js'
 import Signup from './components/Admin/signup.js'
 import Profile from './components/Profile/profile.js'
 
-
 class App extends Component {
   state = {
     beerList: [],

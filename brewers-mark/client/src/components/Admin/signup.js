@@ -4,7 +4,8 @@ import axios from 'axios';
 import cookie from 'react-cookies';
 import Input from '../Form';
 import FormBtn from '../Form';
-
+import $ from 'jquery';
+import './adminstyle.css';
 
 class Signup extends Component {
     constructor(props) {
@@ -94,6 +95,10 @@ class Signup extends Component {
             })
     };
 
+
+    componentDidMount(){
+        $('body').css('background-image' , 'url(./adminbackground.png)')
+    }
     // logout() {
     //     this.setState({
     //         isLoading: true,
@@ -124,9 +129,11 @@ class Signup extends Component {
     // }
 
     render() {
-        return <div>
+        return <div id='adminmain'>
+        <center>
             <div>
-                <p>Sign In</p>
+                <p id='signin'>Sign In</p>
+                <div id='signinform'>
                 <input
                     name="signInUsername"
                     placeholder="Username"
@@ -142,6 +149,7 @@ class Signup extends Component {
                 />
                 <br />
                 <button onClick={this.onSignInSubmit}>Sign In</button>
+                </div>
             </div>
             <br />
             <br />
@@ -151,7 +159,7 @@ class Signup extends Component {
                         <p>{this.state.signUpError}</p>
                     ) : (null)
                 }
-                <p>Sign Up</p>
+                <p id='signupcard'>Sign Up</p>
                 {/* <input
                     name="signUpCompany"
                     placeholder="Brewery Name"
@@ -202,7 +210,7 @@ class Signup extends Component {
                 /><br />
                 <button onClick={this.onSignUpSubmit}>Sign Up</button>
             </div>
-
+            </center>
         </div>
 
     }

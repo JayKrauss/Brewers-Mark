@@ -13,8 +13,6 @@ class StoutBottlesNav extends Component {
     };
 
     componentDidMount(){
-        $('body').css('background-image' , 'url(./bottleback.png)')
-
         function IPAtimedMove(){
           setTimeout(function () {
             IPAmove();
