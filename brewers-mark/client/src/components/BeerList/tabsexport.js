@@ -58,10 +58,10 @@ class BeerList extends Component {
       });
   }
 
-  // handleClick = (bid) => {
-  //   beerAPI.getMultiple(bid)
-  //     .then(() => this.props.history.push("/glass/:id?"));
-  // }
+  handleClick = (bid) => {
+    beerAPI.getById(bid)
+      .then(() => this.props.history.push("/glass/:id?"));
+  }
 
   render() {
     console.log(this.props);
@@ -73,7 +73,7 @@ class BeerList extends Component {
             <TabBtn
               key={prop.bid}
               title={prop.beer_name}
-              value={prop.bid}
+              bid={prop.bid}
             />
           );
         })}

@@ -1,3 +1,9 @@
+body{
+  background-image: url('./glassback.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
 #glasstyle, #beertitle, #glassABV, #glassbrewery, #glasstype, #glassrating {
   color: white;
@@ -7,7 +13,8 @@
 #glassdescription {
   font-size: 18px;
   color: white;
-  overflow-y: scroll;
+  overflow: auto;
+  height: 300px;
 }
 
 #leftcont, #rightcont {
@@ -34,10 +41,12 @@ left:25%;
 }
 
 #beertitle {
-  position: absolute;
-  left: 25%;
-  bottom: 10%;
+  position: relative;
+  top: -200px;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 40px;
+  font-family: 'Fascinate Inline', cursive;
 }
 
 #beername.namemove {
