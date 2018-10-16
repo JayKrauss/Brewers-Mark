@@ -13,6 +13,9 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
+  "engines": {
+    "node": "9.6.1"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -37,7 +40,6 @@
     "react-cookie": "^3.0.4",
     "react-router": "^4.3.1",
     "react-transition-group": "^2.5.0",
-    "whatwg-fetch": "^3.0.0",
-    "Node": "9.6.1"
+    "whatwg-fetch": "^3.0.0"
   }
 }
