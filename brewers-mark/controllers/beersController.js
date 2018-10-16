@@ -26,7 +26,7 @@ module.exports = {
 
     findName: function (req, res) {
         db.Beer
-            .find({ beer_name: `/${req.params.name}/` })
+            .find({ beer_name: new RegExp(req.params.name, "i") })
             .then(beer => res.json(beer))
             .catch(err => res.status(422).json(err));
     },

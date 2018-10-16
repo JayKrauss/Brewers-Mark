@@ -6,21 +6,86 @@ import './survey.css'
 class Survey extends React.Component {
 
   state = {
-    questionIndex: 0,
+    surveyIndex: 0,
     answerIndex: 0,
+    answers: [],
+    parent: ["Lager", "Sour", "Stout", "IPA"],
+    child: [
+      ["American", "Czech", "Pilsner"],
+      ["Ale", "Berliner", "Gose"],
+      ["Porter", "Imperial", "Milk", "Oatmeal"],
+      ["New England", "Double", "Triple", "Session"]
+    ],
     survey: [
-      [{
-        questions: ["Which of these beer styles do you prefer?"],
+      {
+        question: "Which style of beer is your favorite?",
         answers: [
-          "Allagash White, Blue Moon, Stiegl Radler",
-          "Anderson Valley (Gose Sour style)",
-          "Guinness, Founders Breakfast Stout",
-          "Dog Fish Head 60 Minute IPA, Sierra Nevada IPA",
+          "Lager",
+          "Sour",
+          "Stout",
+          "IPA"
         ]
-      }],
-      [{
-
-      }]
+      },
+      {
+        question: "Which of these beers do you prefer?",
+        answers: [
+          [
+            "Allagash White, Blue Moon, Stiegl Radler",
+            "Anderson Valley (Gose Sour style)",
+            "Guinness Stout, Founders Breakfast Stout",
+            "Dog Fish Head 60 Minute IPA, Sierra Nevada IPA",
+          ],
+          [
+            "Allagash White, Blue Moon, Stiegl Radler",
+            "Anderson Valley (Gose Sour style)",
+            "Guinness Stout, Founders Breakfast Stout",
+            "Dog Fish Head 60 Minute IPA, Sierra Nevada IPA",
+          ],
+          [
+            "Allagash White, Blue Moon, Stiegl Radler",
+            "Anderson Valley (Gose Sour style)",
+            "Guinness Stout, Founders Breakfast Stout",
+            "Dog Fish Head 60 Minute IPA, Sierra Nevada IPA",
+          ],
+          [
+            "Allagash White, Blue Moon, Stiegl Radler",
+            "Anderson Valley (Gose Sour style)",
+            "Guinness Stout, Founders Breakfast Stout",
+            "Dog Fish Head 60 Minute IPA, Sierra Nevada IPA",
+          ]
+        ]
+      },
+      {
+        question: "What flavors do you enjoy the most?",
+        answers: [
+          [
+            //lager params
+            "Crisp, Dry Finish, Low Bitterness, Neutral Palate",
+            "Rich, Hoppy, Bitter",
+            "Fizzy, Subtle Maltiness, Floral"
+          ],
+          [
+            //sour params
+            "Fruity, Bright",
+            "Dry, Crisp",
+            "Tart, Saltier"
+          ],
+          [
+            //stout params
+            "porter stuff",
+            "Intense, Complex, Rich",
+            "Creamy, Thick, Smooth",
+            "Sweet, Dessert-style"
+          ],
+          [
+            //ipa params
+            "Juicy, Fruity",
+            "Light, Refreshing, Crisp",
+            "Hoppy, Clean, Strong but Drinkable",
+            "High ABV, Very Hoppy, High Bitterness"
+          ]
+        ]
+      }
     ]
   }
 

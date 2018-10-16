@@ -23,62 +23,68 @@ class Glass extends React.Component {
 
     if (!beerId) {
       beerAPI.getRandom()
-        .then(res => this.setState({ beer: res.data[0] }))
+        .then(res => this.setState({ beer: res.data[0] }));
     }
     else {
-      console.log("inside else")
-      beerAPI.getById(beerId)
-        .then(res => this.setState({ beer: res.data[0] }))
+      if (isNaN(parseInt(beerId))) {
+        console.log("not a number");
+        beerAPI.getByName(beerId)
+          .then(res => this.setState({ beer: res.data[0] }));
+      }
+      else {
+        beerAPI.getById(beerId)
+          .then(res => this.setState({ beer: res.data[0] }));
+      }
     }
-    
 
-  //   function beerColor() {
-  //     let EBC;
 
-  //     let IPA ='IPA';
-  //     let sour = 'Sour';
-  //     let lager = 'Lager';
-  //     let stout = 'Stout';
+    //   function beerColor() {
+    //     let EBC;
 
-  //     if (this.state.beer.beer_style.includes(IPA)){
-  //       EBC = 13
-  //     }
-  //     else if (this.state.beer.beer_style.includes(sour)){
-  //       EBC = 25
-  //     }
-  //     else if (this.state.beer.beer_style.includes(lager)){
-  //       EBC = 29
-  //     }
-  //     else if (this.state.beer.beer_style.includes(stout)){
-  //       EBC = 45
-  //     }  
-  //       if (EBC <= 11) {
-  //         document.getElementById("beer").style.background="linear-gradient(white, rgb(184, 123, 28, .95),rgb(184, 123, 28, .95),rgb(184, 123, 28, .95), rgb(184, 123, 28, .95),rgb(184, 123, 28, .95))";
-  //         document.getElementById("pour").style.background="linear-gradient(rgb(184, 123, 28), rgb(184, 123, 28),white)";
-  //       }
-  //       else if ((EBC > 11) && (EBC <= 19)) {
-  //         document.getElementById("beer").style.background="linear-gradient(white, 	rgb(191, 136, 21, .95), 	rgb(191, 136, 21, .95), 	rgb(191, 136, 21, .95), 	rgb(191, 136, 21, .95),	rgb(191, 136, 21, .95))";
-  //         document.getElementById("pour").style.background="linear-gradient(rgb(191, 136, 21, .95), 	rgb(191, 136, 21, .95), white)";
-  //       }
-  //       else if ((EBC >= 20) && (EBC <= 28)) {
-  //         document.getElementById("beer").style.background="linear-gradient(white, 	rgb(114, 46, 24, .95),	rgb(114, 46, 24),	rgb(114, 46, 24), 	rgb(114, 46, 24),	rgb(114, 46, 24))";
-  //         document.getElementById("pour").style.background="linear-gradient(rgb(114, 46, 24), 	rgb(114, 46, 24),white)";
-  //       }
-  //       else if ((EBC > 28) && (EBC <=36)) {
-  //         document.getElementById("beer").style.background="linear-gradient(white,rgb(55, 30, 17, .95),rgb(55, 30, 17, .95),rgb(55, 30, 17, .95),rgb(55, 30, 17, .95),rgb(55, 12, 30, .95))";
-  //         document.getElementById("pour").style.background="linear-gradient(#4b0c11,rgb(55, 12, 17), white)";
-  //       }
-  //       else if (EBC > 36){
-  //         document.getElementById("beer").style.background="linear-gradient(white, rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), rgb(21, 9, 1, 1))";
-  //         document.getElementById("pour").style.background="linear-gradient(rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), white)";
-  //     }
-  //   }
+    //     let IPA ='IPA';
+    //     let sour = 'Sour';
+    //     let lager = 'Lager';
+    //     let stout = 'Stout';
+
+    //     if (this.state.beer.beer_style.includes(IPA)){
+    //       EBC = 13
+    //     }
+    //     else if (this.state.beer.beer_style.includes(sour)){
+    //       EBC = 25
+    //     }
+    //     else if (this.state.beer.beer_style.includes(lager)){
+    //       EBC = 29
+    //     }
+    //     else if (this.state.beer.beer_style.includes(stout)){
+    //       EBC = 45
+    //     }  
+    //       if (EBC <= 11) {
+    //         document.getElementById("beer").style.background="linear-gradient(white, rgb(184, 123, 28, .95),rgb(184, 123, 28, .95),rgb(184, 123, 28, .95), rgb(184, 123, 28, .95),rgb(184, 123, 28, .95))";
+    //         document.getElementById("pour").style.background="linear-gradient(rgb(184, 123, 28), rgb(184, 123, 28),white)";
+    //       }
+    //       else if ((EBC > 11) && (EBC <= 19)) {
+    //         document.getElementById("beer").style.background="linear-gradient(white, 	rgb(191, 136, 21, .95), 	rgb(191, 136, 21, .95), 	rgb(191, 136, 21, .95), 	rgb(191, 136, 21, .95),	rgb(191, 136, 21, .95))";
+    //         document.getElementById("pour").style.background="linear-gradient(rgb(191, 136, 21, .95), 	rgb(191, 136, 21, .95), white)";
+    //       }
+    //       else if ((EBC >= 20) && (EBC <= 28)) {
+    //         document.getElementById("beer").style.background="linear-gradient(white, 	rgb(114, 46, 24, .95),	rgb(114, 46, 24),	rgb(114, 46, 24), 	rgb(114, 46, 24),	rgb(114, 46, 24))";
+    //         document.getElementById("pour").style.background="linear-gradient(rgb(114, 46, 24), 	rgb(114, 46, 24),white)";
+    //       }
+    //       else if ((EBC > 28) && (EBC <=36)) {
+    //         document.getElementById("beer").style.background="linear-gradient(white,rgb(55, 30, 17, .95),rgb(55, 30, 17, .95),rgb(55, 30, 17, .95),rgb(55, 30, 17, .95),rgb(55, 12, 30, .95))";
+    //         document.getElementById("pour").style.background="linear-gradient(#4b0c11,rgb(55, 12, 17), white)";
+    //       }
+    //       else if (EBC > 36){
+    //         document.getElementById("beer").style.background="linear-gradient(white, rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), rgb(21, 9, 1, 1))";
+    //         document.getElementById("pour").style.background="linear-gradient(rgb(21, 9, 1, 1), rgb(21, 9, 1, 1), white)";
+    //     }
+    //   }
   }
 
   render() {
     return (
       <div className='container' id='holdingdiv'>
-      <link rel="stylesheet" type="text/css" href="./BeerDisplay.css" />
+        <link rel="stylesheet" type="text/css" href="./BeerDisplay.css" />
         <div className='row'>
           <div id='beername'>
             <img src={beername} />
@@ -90,8 +96,8 @@ class Glass extends React.Component {
         <div className='row'>
           <div className='col-3'>
             <div id='leftinfo'>
-            <div className='container' id='leftcont'>
-              <p id='glassdescription'>{this.state.beer.beer_description}</p>
+              <div className='container' id='leftcont'>
+                <p id='glassdescription'>{this.state.beer.beer_description}</p>
               </div>
             </div>
           </div>
@@ -106,17 +112,17 @@ class Glass extends React.Component {
           <div className='col-3'>
             <div id='rightinfo'>
               <div className='container' id='rightcont'>
-              <center>
-              <h5 id='glassbrewery'>{this.state.beer.brewery_name}</h5>
-              </center>
-              <p id='glasstype'>{this.state.beer.brewery_type}</p>
-              <p id='glasstyle'>Style: {this.state.beer.beer_style}</p>
-              <p id='glassABV'>ABV: {this.state.beer.beer_abv}</p>
-              <p id='glassrating'>Beer Rating: {this.state.beer.rating_score}</p>
-              <center>
-                <br />
-              <button className='btn-danger btn-lg'>Add to Favorites!</button>
-              </center>
+                <center>
+                  <h5 id='glassbrewery'>{this.state.beer.brewery_name}</h5>
+                </center>
+                <p id='glasstype'>{this.state.beer.brewery_type}</p>
+                <p id='glasstyle'>Style: {this.state.beer.beer_style}</p>
+                <p id='glassABV'>ABV: {this.state.beer.beer_abv}</p>
+                <p id='glassrating'>Beer Rating: {this.state.beer.rating_score}</p>
+                <center>
+                  <br />
+                  <button className='btn-danger btn-lg'>Add to Favorites!</button>
+                </center>
               </div>
             </div>
           </div>
