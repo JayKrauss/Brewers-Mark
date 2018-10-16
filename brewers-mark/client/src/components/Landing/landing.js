@@ -4,14 +4,13 @@ import './landing.css';
 const Landing = () => (
     <div id='landmain'>
         <div>
-        <form class="clearfix mb-4" action="POST">
-            <div class="form-group">
+        <form className="clearfix mb-4" action="POST">
+            <div className="form-group">
               <br/>
-              <label class="text-center landtext" for="example-text"><p>Find Me:</p></label>
-              <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Name Your Brew"/>
+              <label className="text-center landtext" htmlFor="example-text"><p id='findme'>New in town?   </p></label>
+              <a id='random' className='btn btn-light' href='glass'>Find a Random Beer</a>
             </div>
-            <a id='random' class='btn btn-light' href='glass'>Roll the Dice</a>
-            <a id="submit" class="btn btn-light">Search</a>
+                       
           </form>
         </div>
     </div>
