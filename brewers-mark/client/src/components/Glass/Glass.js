@@ -6,14 +6,23 @@ import signmove from './signmove.js'
 import namemove from './namemove.js'
 import beername from '../../assets/images/beername.png'
 import beerAPI from '../../utils/beerAPI';
+import axios from "axios";
 
 class Glass extends React.Component {
 
   state = {
-    beer: {}
+    beer: {},
+    user: {}
   };
 
   componentDidMount() {
+
+    axios.get("/api/admin/me")
+      .then(res => {
+        console.log(res);
+        this.setState({ user: res.data })
+      });
+
     pourBeer();
     signmove();
     namemove();
@@ -80,6 +89,15 @@ class Glass extends React.Component {
     }
   }
 
+  addToFavorites = () => {
+    console.log(this.state);
+    const user = { ...this.state.user };
+    user.favorites.push(this.state.beer._id);
+
+    axios.put("/api/admin/" + user._id, user)
+      .then(res => this.setState({ user: res.data }))
+  }
+
   render() {
     return (
       <div className='container' id='holdingdiv'>
@@ -120,7 +138,7 @@ class Glass extends React.Component {
               <p id='glassABV'>ABV: {this.state.beer.beer_abv}</p>
               <center>
                 <br />
-              <button className='btn-danger btn-lg'>Add to Favorites!</button>
+              <button onClick={this.addToFavorites} className='btn-danger btn-lg'>Add to Favorites!</button>
               </center>
               </div>
             </div>
