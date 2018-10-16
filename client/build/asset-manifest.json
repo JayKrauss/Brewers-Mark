@@ -1,8 +1,22 @@
 {
-  "main.js": "static/js/main.29ecb275.js",
-  "main.js.map": "static/js/main.29ecb275.js.map",
-  "static\\media\\IPAchainsign.png": "static/media/IPAchainsign.675ed0c7.png",
-  "static\\media\\beername.png": "static/media/beername.1376b8d4.png",
-  "static\\media\\chainsign.png": "static/media/chainsign.61ceb059.png",
-  "static\\media\\chalk.png": "static/media/chalk.18469f44.png"
+  "main.css": "/static/css/main.c49b2ee6.chunk.css",
+  "main.js": "/static/js/main.9480723e.chunk.js",
+  "main.js.map": "/static/js/main.9480723e.chunk.js.map",
+  "static/js/1.588b2c5a.chunk.js": "/static/js/1.588b2c5a.chunk.js",
+  "static/js/1.588b2c5a.chunk.js.map": "/static/js/1.588b2c5a.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
+  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
+  "static/media/IPAchainsign.png": "/static/media/IPAchainsign.675ed0c7.png",
+  "static/media/BeerDisplay.css": "/static/media/signbackground.7d17b507.png",
+  "static/media/home.css": "/static/media/woodback.574cae96.jpg",
+  "static/media/bottles.css": "/static/media/bottle.1ecc8ee3.png",
+  "static/media/chalk.png": "/static/media/chalk.18469f44.png",
+  "static/media/beername.png": "/static/media/beername.1376b8d4.png",
+  "static/media/brewer.css": "/static/media/taphandleclearedfull.91e1e906.png",
+  "static/media/tabs.css": "/static/media/ale.8aeae7e5.jpg",
+  "static/media/chainsign.png": "/static/media/chainsign.61ceb059.png",
+  "static/css/main.c49b2ee6.chunk.css.map": "/static/css/main.c49b2ee6.chunk.css.map",
+  "index.html": "/index.html",
+  "precache-manifest.7551ce3f3eb7bb8af68769ddf3f37eeb.js": "/precache-manifest.7551ce3f3eb7bb8af68769ddf3f37eeb.js",
+  "service-worker.js": "/service-worker.js"
 }

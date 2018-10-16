@@ -12,10 +12,7 @@
     "install": "cd client && yarn install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
-  },
-  "engines": {
-    "node": "9.6.1"
-  },
+  }, 
   "author": "",
   "license": "ISC",
   "devDependencies": {

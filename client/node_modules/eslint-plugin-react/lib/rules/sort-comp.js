@@ -4,26 +4,66 @@
  */
 'use strict';
 
-var has = require('has');
-var util = require('util');
+const has = require('has');
+const util = require('util');
 
-var Components = require('../util/Components');
+const Components = require('../util/Components');
+const arrayIncludes = require('array-includes');
+const astUtil = require('../util/ast');
+const docsUrl = require('../util/docsUrl');
+
+const defaultConfig = {
+  order: [
+    'static-methods',
+    'lifecycle',
+    'everything-else',
+    'render'
+  ],
+  groups: {
+    lifecycle: [
+      'displayName',
+      'propTypes',
+      'contextTypes',
+      'childContextTypes',
+      'mixins',
+      'statics',
+      'defaultProps',
+      'constructor',
+      'getDefaultProps',
+      'state',
+      'getInitialState',
+      'getChildContext',
+      'getDerivedStateFromProps',
+      'componentWillMount',
+      'UNSAFE_componentWillMount',
+      'componentDidMount',
+      'componentWillReceiveProps',
+      'UNSAFE_componentWillReceiveProps',
+      'shouldComponentUpdate',
+      'componentWillUpdate',
+      'UNSAFE_componentWillUpdate',
+      'getSnapshotBeforeUpdate',
+      'componentDidUpdate',
+      'componentDidCatch',
+      'componentWillUnmount'
+    ]
+  }
+};
 
 /**
  * Get the methods order from the default config and the user config
- * @param {Object} defaultConfig The default configuration.
  * @param {Object} userConfig The user configuration.
  * @returns {Array} Methods order
  */
-function getMethodsOrder(defaultConfig, userConfig) {
+function getMethodsOrder(userConfig) {
   userConfig = userConfig || {};
 
-  var groups = util._extend(defaultConfig.groups, userConfig.groups);
-  var order = userConfig.order || defaultConfig.order;
+  const groups = util._extend(defaultConfig.groups, userConfig.groups);
+  const order = userConfig.order || defaultConfig.order;
 
-  var config = [];
-  var entry;
-  for (var i = 0, j = order.length; i < j; i++) {
+  let config = [];
+  let entry;
+  for (let i = 0, j = order.length; i < j; i++) {
     entry = order[i];
     if (has(groups, entry)) {
       config = config.concat(groups[entry]);
@@ -44,7 +84,8 @@ module.exports = {
     docs: {
       description: 'Enforce component methods order',
       category: 'Stylistic Issues',
-      recommended: false
+      recommended: false,
+      url: docsUrl('sort-comp')
     },
 
     schema: [{
@@ -72,21 +113,53 @@ module.exports = {
     }]
   },
 
-  create: Components.detect(function(context, components) {
+  create: Components.detect((context, components) => {
+    const errors = {};
 
-    var errors = {};
+    const MISPOSITION_MESSAGE = '{{propA}} should be placed {{position}} {{propB}}';
 
-    var MISPOSITION_MESSAGE = '{{propA}} should be placed {{position}} {{propB}}';
+    const methodsOrder = getMethodsOrder(context.options[0]);
 
-    var methodsOrder = getMethodsOrder({
-      order: [
-        'static-methods',
-        'lifecycle',
-        'everything-else',
-        'render'
-      ],
-      groups: {
-        lifecycle: [
+    // --------------------------------------------------------------------------
+    // Public
+    // --------------------------------------------------------------------------
+
+    const regExpRegExp = /\/(.*)\/([g|y|i|m]*)/;
+
+    /**
+     * Get indexes of the matching patterns in methods order configuration
+     * @param {Object} method - Method metadata.
+     * @returns {Array} The matching patterns indexes. Return [Infinity] if there is no match.
+     */
+    function getRefPropIndexes(method) {
+      const methodGroupIndexes = [];
+
+      methodsOrder.forEach((currentGroup, groupIndex) => {
+        if (currentGroup === 'getters') {
+          if (method.getter) {
+            methodGroupIndexes.push(groupIndex);
+          }
+        } else if (currentGroup === 'setters') {
+          if (method.setter) {
+            methodGroupIndexes.push(groupIndex);
+          }
+        } else if (currentGroup === 'type-annotations') {
+          if (method.typeAnnotation) {
+            methodGroupIndexes.push(groupIndex);
+          }
+        } else if (currentGroup === 'static-methods') {
+          if (method.static) {
+            methodGroupIndexes.push(groupIndex);
+          }
+        } else if (currentGroup === 'instance-variables') {
+          if (method.instanceVariable) {
+            methodGroupIndexes.push(groupIndex);
+          }
+        } else if (currentGroup === 'instance-methods') {
+          if (method.instanceMethod) {
+            methodGroupIndexes.push(groupIndex);
+          }
+        } else if (arrayIncludes([
           'displayName',
           'propTypes',
           'contextTypes',
@@ -99,85 +172,51 @@ module.exports = {
           'state',
           'getInitialState',
           'getChildContext',
+          'getDerivedStateFromProps',
           'componentWillMount',
+          'UNSAFE_componentWillMount',
           'componentDidMount',
           'componentWillReceiveProps',
+          'UNSAFE_componentWillReceiveProps',
           'shouldComponentUpdate',
           'componentWillUpdate',
+          'UNSAFE_componentWillUpdate',
+          'getSnapshotBeforeUpdate',
           'componentDidUpdate',
-          'componentWillUnmount'
-        ]
-      }
-    }, context.options[0]);
-
-    // --------------------------------------------------------------------------
-    // Public
-    // --------------------------------------------------------------------------
-
-    var regExpRegExp = /\/(.*)\/([g|y|i|m]*)/;
-
-    /**
-     * Get indexes of the matching patterns in methods order configuration
-     * @param {Object} method - Method metadata.
-     * @returns {Array} The matching patterns indexes. Return [Infinity] if there is no match.
-     */
-    function getRefPropIndexes(method) {
-      var isRegExp;
-      var matching;
-      var i;
-      var j;
-      var indexes = [];
-
-      if (method.static) {
-        for (i = 0, j = methodsOrder.length; i < j; i++) {
-          if (methodsOrder[i] === 'static-methods') {
-            indexes.push(i);
-            break;
+          'componentDidCatch',
+          'componentWillUnmount',
+          'render'
+        ], currentGroup)) {
+          if (currentGroup === method.name) {
+            methodGroupIndexes.push(groupIndex);
           }
-        }
-      }
-
-      if (method.typeAnnotation) {
-        for (i = 0, j = methodsOrder.length; i < j; i++) {
-          if (methodsOrder[i] === 'type-annotations') {
-            indexes.push(i);
-            break;
-          }
-        }
-      }
-
-      // Either this is not a static method or static methods are not specified
-      // in the methodsOrder.
-      if (indexes.length === 0) {
-        for (i = 0, j = methodsOrder.length; i < j; i++) {
-          isRegExp = methodsOrder[i].match(regExpRegExp);
+        } else {
+          // Is the group a regex?
+          const isRegExp = currentGroup.match(regExpRegExp);
           if (isRegExp) {
-            matching = new RegExp(isRegExp[1], isRegExp[2]).test(method.name);
-          } else {
-            matching = methodsOrder[i] === method.name;
-          }
-          if (matching) {
-            indexes.push(i);
+            const isMatching = new RegExp(isRegExp[1], isRegExp[2]).test(method.name);
+            if (isMatching) {
+              methodGroupIndexes.push(groupIndex);
+            }
+          } else if (currentGroup === method.name) {
+            methodGroupIndexes.push(groupIndex);
           }
         }
-      }
+      });
 
       // No matching pattern, return 'everything-else' index
-      if (indexes.length === 0) {
-        for (i = 0, j = methodsOrder.length; i < j; i++) {
-          if (methodsOrder[i] === 'everything-else') {
-            indexes.push(i);
-            break;
-          }
+      if (methodGroupIndexes.length === 0) {
+        const everythingElseIndex = methodsOrder.indexOf('everything-else');
+
+        if (everythingElseIndex !== -1) {
+          methodGroupIndexes.push(everythingElseIndex);
+        } else {
+          // No matching pattern and no 'everything-else' group
+          methodGroupIndexes.push(Infinity);
         }
       }
 
-      // No matching pattern and no 'everything-else' group
-      if (indexes.length === 0) {
-        indexes.push(Infinity);
-      }
-
-      return indexes;
+      return methodGroupIndexes;
     }
 
     /**
@@ -186,14 +225,15 @@ module.exports = {
      * @returns {String} Property name.
      */
     function getPropertyName(node) {
-      // Special case for class properties
-      // (babel-eslint does not expose property name so we have to rely on tokens)
-      if (node.type === 'ClassProperty') {
-        var tokens = context.getFirstTokens(node, 2);
-        return tokens[1] && tokens[1].type === 'Identifier' ? tokens[1].value : tokens[0].value;
+      if (node.kind === 'get') {
+        return 'getter functions';
       }
 
-      return node.key.name;
+      if (node.kind === 'set') {
+        return 'setter functions';
+      }
+
+      return astUtil.getPropertyName(node);
     }
 
     /**
@@ -236,11 +276,11 @@ module.exports = {
      * Dedupe errors, only keep the ones with the highest score and delete the others
      */
     function dedupeErrors() {
-      for (var i in errors) {
+      for (const i in errors) {
         if (!has(errors, i)) {
           continue;
         }
-        var index = errors[i].closest.ref.index;
+        const index = errors[i].closest.ref.index;
         if (!errors[index]) {
           continue;
         }
@@ -258,11 +298,11 @@ module.exports = {
     function reportErrors() {
       dedupeErrors();
 
-      var nodeA;
-      var nodeB;
-      var indexA;
-      var indexB;
-      for (var i in errors) {
+      let nodeA;
+      let nodeB;
+      let indexA;
+      let indexB;
+      for (const i in errors) {
         if (!has(errors, i)) {
           continue;
         }
@@ -285,24 +325,6 @@ module.exports = {
     }
 
     /**
-     * Get properties for a given AST node
-     * @param {ASTNode} node The AST node being checked.
-     * @returns {Array} Properties array.
-     */
-    function getComponentProperties(node) {
-      switch (node.type) {
-        case 'ClassDeclaration':
-          return node.body.body;
-        case 'ObjectExpression':
-          return node.properties.filter(function(property) {
-            return property.type === 'Property';
-          });
-        default:
-          return [];
-      }
-    }
-
-    /**
      * Compare two properties and find out if they are in the right order
      * @param {Array} propertiesInfos Array containing all the properties metadata.
      * @param {Object} propA First property name and metadata
@@ -310,20 +332,20 @@ module.exports = {
      * @returns {Object} Object containing a correct true/false flag and the correct indexes for the two properties.
      */
     function comparePropsOrder(propertiesInfos, propA, propB) {
-      var i;
-      var j;
-      var k;
-      var l;
-      var refIndexA;
-      var refIndexB;
+      let i;
+      let j;
+      let k;
+      let l;
+      let refIndexA;
+      let refIndexB;
 
       // Get references indexes (the correct position) for given properties
-      var refIndexesA = getRefPropIndexes(propA);
-      var refIndexesB = getRefPropIndexes(propB);
+      const refIndexesA = getRefPropIndexes(propA);
+      const refIndexesB = getRefPropIndexes(propB);
 
       // Get current indexes for given properties
-      var classIndexA = propertiesInfos.indexOf(propA);
-      var classIndexB = propertiesInfos.indexOf(propB);
+      const classIndexA = propertiesInfos.indexOf(propA);
+      const classIndexB = propertiesInfos.indexOf(propB);
 
       // Loop around the references indexes for the 1st property
       for (i = 0, j = refIndexesA.length; i < j; i++) {
@@ -347,7 +369,6 @@ module.exports = {
               indexB: classIndexB
             };
           }
-
         }
       }
 
@@ -364,21 +385,29 @@ module.exports = {
      * @param {Array} properties Array containing all the properties.
      */
     function checkPropsOrder(properties) {
-      var propertiesInfos = properties.map(function(node) {
-        return {
-          name: getPropertyName(node),
-          static: node.static,
-          typeAnnotation: !!node.typeAnnotation && node.value === null
-        };
-      });
+      const propertiesInfos = properties.map(node => ({
+        name: getPropertyName(node),
+        getter: node.kind === 'get',
+        setter: node.kind === 'set',
+        static: node.static,
+        instanceVariable: !node.static &&
+          node.type === 'ClassProperty' &&
+          node.value &&
+          !astUtil.isFunctionLikeExpression(node.value),
+        instanceMethod: !node.static &&
+          node.type === 'ClassProperty' &&
+          node.value &&
+          (astUtil.isFunctionLikeExpression(node.value)),
+        typeAnnotation: !!node.typeAnnotation && node.value === null
+      }));
 
-      var i;
-      var j;
-      var k;
-      var l;
-      var propA;
-      var propB;
-      var order;
+      let i;
+      let j;
+      let k;
+      let l;
+      let propA;
+      let propB;
+      let order;
 
       // Loop around the properties
       for (i = 0, j = propertiesInfos.length; i < j; i++) {
@@ -386,6 +415,10 @@ module.exports = {
 
         // Loop around the properties a second time (for comparison)
         for (k = 0, l = propertiesInfos.length; k < l; k++) {
+          if (i === k) {
+            continue;
+          }
+
           propB = propertiesInfos[k];
 
           // Compare the properties order
@@ -406,23 +439,23 @@ module.exports = {
           });
         }
       }
-
     }
 
     return {
       'Program:exit': function() {
-        var list = components.list();
-        for (var component in list) {
+        const list = components.list();
+        for (const component in list) {
           if (!has(list, component)) {
             continue;
           }
-          var properties = getComponentProperties(list[component].node);
+          const properties = astUtil.getComponentProperties(list[component].node);
           checkPropsOrder(properties);
         }
 
         reportErrors();
       }
     };
+  }),
 
-  })
+  defaultConfig
 };
