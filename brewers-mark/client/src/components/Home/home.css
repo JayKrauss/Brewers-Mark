@@ -38,6 +38,10 @@ p {
 
 }
 
+.landtext {
+    color: white;
+}
+
 @keyframes move {
     from { transform: translate3d(0, 0, 0);     }
     to   { transform: translate3d(0, -480px, 0); }
