@@ -1,6 +1,7 @@
 import React from "react";
 import $ from 'jquery';
 import './survey.css'
+import beerAPI from "../../utils/beerAPI";
 
 
 class Survey extends React.Component {
@@ -8,7 +9,7 @@ class Survey extends React.Component {
   state = {
     surveyIndex: 0,
     answerIndex: 0,
-    answers: [],
+    answers: [0],
     parent: ["Lager", "Sour", "Stout", "IPA"],
     child: [
       ["American", "Czech", "Pilsner"],
@@ -20,10 +21,12 @@ class Survey extends React.Component {
       {
         question: "Which style of beer is your favorite?",
         answers: [
-          "Lager",
-          "Sour",
-          "Stout",
-          "IPA"
+          [
+            "Lager",
+            "Sour",
+            "Stout",
+            "IPA"
+          ]
         ]
       },
       {
@@ -72,7 +75,7 @@ class Survey extends React.Component {
           ],
           [
             //stout params
-            "porter stuff",
+            "Malty, Earthy, Flavorful",
             "Intense, Complex, Rich",
             "Creamy, Thick, Smooth",
             "Sweet, Dessert-style"
@@ -97,9 +100,9 @@ class Survey extends React.Component {
     let answerBank = [];
     let index = this.state.surveyIndex;
     let answerIndex = this.state.answerIndex
-    let answers = this.state.survey[index].answers
+    let answers = this.state.survey[index].answers[answerIndex]
 
-    for (let i = 0; i < answers[answerIndex].length; i++) {
+    for (let i = 0; i < answers.length; i++) {
       answerBank.push(
         <option value={i}>
           {
@@ -111,11 +114,30 @@ class Survey extends React.Component {
     return answerBank;
   }
 
-  handleSubmit() {
-    $("#submit").on("click", function (event) {
-      event.preventDefault();
-      console.log(event);
-    })
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    let answerNum = $("#questionBox").val();
+    if (this.state.surveyIndex >= 2) {
+      let lastAnswer = this.state.answers[this.state.answers.length - 1];
+      console.log("last answer: ", lastAnswer);
+      console.log("current answer: ", answerNum);
+      console.log("parent: ", this.state.parent[lastAnswer]);
+      console.log("child: ", this.state.child[lastAnswer][answerNum]);
+      let beer = { parent: this.state.parent[lastAnswer], child: this.state.child[lastAnswer][answerNum] };
+      // this.handleAPI(beer);
+      beerAPI.getMultiple(beer)
+        .then(res => console.log(res));
+    }
+    else {
+      this.setState({ surveyIndex: (this.state.surveyIndex + 1), answers: [...this.state.answers, answerNum], answerIndex: answerNum });
+    }
+  };
+
+  handleAPI = beer => {
+    beerAPI.getMultiple(beer)
+      .then(res => this.props.setBeerList(res.data))
+      .then(() => this.props.history.push("/beerlist"));
   }
 
   render() {
@@ -147,7 +169,7 @@ class Survey extends React.Component {
             <br />
             <br />
 
-            <button type="submit" class="btn btn-light" id="submit"><i className="fa fa-check-circle" aria-hidden="true"></i>
+            <button type="submit" class="btn btn-light" id="submit" onClick={this.handleSubmit}><i className="fa fa-check-circle" aria-hidden="true"></i>
               Submit</button>
 
 
