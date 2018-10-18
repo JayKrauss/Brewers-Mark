@@ -1,7 +1,8 @@
 #surveyhome {
     height: 100%;
     width: 80%;
-    margin-top: 5%;
+    margin-top: 15%;
+    position: relative;
 }
 
 #surveychild{
@@ -12,4 +13,8 @@
 
 h1, h2, h3, h4 {
     color: #cccccc;
+}
+
+#questionBox {
+    width: 250px;
 }
