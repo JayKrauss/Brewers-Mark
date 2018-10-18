@@ -19,7 +19,7 @@ import Profile from './components/Profile/profile.js'
 class App extends Component {
   state = {
     beerList: [],
-    beerID:[]
+    beerID: []
   }
 
   setBeerList = beers => {
@@ -37,7 +37,7 @@ class App extends Component {
             <Route exact path="/sour" component={(props) => <SourBottlesNav setBeerList={this.setBeerList} {...props} />} />
             <Route exact path="/stout" component={(props) => <StoutBottlesNav setBeerList={this.setBeerList} {...props} />} />
             <Route exact path="/beerlist" component={(props) => <BeerList beerList={this.state.beerList}  {...props} />} />
-            <Route exact path="/survey" component={Survey} />
+            <Route exact path="/survey" component={(props) => <Survey setBeerList={this.setBeerList}{...props} />} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile" component={Profile} />
           </Switch>
@@ -47,4 +47,4 @@ class App extends Component {
   }
 }
 
-  export default App;
+export default App;

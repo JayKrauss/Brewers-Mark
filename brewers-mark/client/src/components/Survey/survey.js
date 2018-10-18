@@ -120,14 +120,9 @@ class Survey extends React.Component {
     let answerNum = $("#questionBox").val();
     if (this.state.surveyIndex >= 2) {
       let lastAnswer = this.state.answers[this.state.answers.length - 1];
-      console.log("last answer: ", lastAnswer);
-      console.log("current answer: ", answerNum);
-      console.log("parent: ", this.state.parent[lastAnswer]);
-      console.log("child: ", this.state.child[lastAnswer][answerNum]);
+      //create api obj from answer bank corresponding to beer styles
       let beer = { parent: this.state.parent[lastAnswer], child: this.state.child[lastAnswer][answerNum] };
-      // this.handleAPI(beer);
-      beerAPI.getMultiple(beer)
-        .then(res => console.log(res));
+      this.handleAPI(beer);
     }
     else {
       this.setState({ surveyIndex: (this.state.surveyIndex + 1), answers: [...this.state.answers, answerNum], answerIndex: answerNum });
@@ -148,6 +143,7 @@ class Survey extends React.Component {
             <h3><strong>Find Your Favorites</strong></h3>
             <h4>Take our survey to find beers you may like!</h4>
 
+
             <hr />
 
             <h4>{this.state.survey[this.state.surveyIndex].question}</h4>
@@ -158,11 +154,7 @@ class Survey extends React.Component {
               {
 
                 this.createAnswers()
-                // <option value=""></option>
-                // <option value="15">Not Bitter At All (American Lager, Scottish Ale)</option>
-                // <option value="35">Slightly Bitter (Stout, Porter)</option>
-                // <option value="70">Bitter (India Pale Ale)</option>
-                // <option value="90">Extremely Bitter (Double or Imperial IPA, Barleywine)</option>
+
               }
             </select>
 
@@ -171,6 +163,7 @@ class Survey extends React.Component {
 
             <button type="submit" class="btn btn-light" id="submit" onClick={this.handleSubmit}><i className="fa fa-check-circle" aria-hidden="true"></i>
               Submit</button>
+
 
 
           </div>
