@@ -9,7 +9,7 @@ import beerAPI from '../../utils/beerAPI';
 class StoutBottlesNav extends Component {
 
   state = {
-    bottles: [{ title: 'Porter', href: '/', parent: 'Porter', child: 'Porter' }, { title: 'American Stout', href: '/', parent: 'Stout', child: 'American' }, { title: 'Imperial Stout', href: '/', parent: 'Stout', child: 'Imperial' }, { title: 'Milk Stout', href: '/', parent: 'Stout', child: 'Milk' }, { title: 'Oatmeal Stout', href: '/', parent: 'Stout', child: 'Oatmeal' }, { title: 'Others', href: '/' }],
+    bottles: [{ title: 'Porter', href: '/', parent: 'Porter', child: 'Porter' }, { title: 'American Stout', href: '/', parent: 'Stout', child: 'American' }, { title: 'Imperial Stout', href: '/', parent: 'Stout', child: 'Imperial' }, { title: 'Milk Stout', href: '/', parent: 'Stout', child: 'Milk' }, { title: 'Oatmeal Stout', href: '/', parent: 'Stout', child: 'Oatmeal' }],
   };
 
   componentDidMount() {

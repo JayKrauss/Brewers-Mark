@@ -9,7 +9,7 @@ import beerAPI from '../../utils/beerAPI';
 class IPABottlesNav extends Component {
 
     state = {
-      bottles: [{title:'New England IPA', href:'/', parent:'IPA', child:'New England'}, {title:'Double IPA',href:'/',parent:'IPA', child:'Double'}, {title:'Triple IPA',href:'/', parent:'IPA', child:'Triple'}, {title:'Session IPA',href:'/', parent:'IPA', child:'Session'}, {title:'Others',href:'/'}],
+      bottles: [{title:'New England IPA', href:'/', parent:'IPA', child:'New England'}, {title:'Double IPA',href:'/',parent:'IPA', child:'Double'}, {title:'Triple IPA',href:'/', parent:'IPA', child:'Triple'}, {title:'Session IPA',href:'/', parent:'IPA', child:'Session'}],
     };
 
     componentDidMount(){

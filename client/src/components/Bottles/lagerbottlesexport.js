@@ -9,7 +9,7 @@ import beerAPI from '../../utils/beerAPI';
 class LagerBottlesNav extends Component {
 
     state = {
-      bottles: [{title:'American Light Lager', href:'/', parent:'Lager', child:'American'}, {title:'Czech Lager',href:'/', parent:'Czech', child:'Czech'}, {title:'Kolsch Lager',href:'/', parent:'Kölsch', child:'Kolsch'}, {title:'Dark European Lager',href:'/', parent:'Lager', child:'European'}, {title:'Pilsner',href:'/', parent:'Pilsner', child:'Pilsner'}, {title:'Others',href:'/'}],
+      bottles: [{title:'American Light Lager', href:'/', parent:'Lager', child:'American'}, {title:'Czech Lager',href:'/', parent:'Czech', child:'Czech'}, {title:'Pilsner',href:'/', parent:'Pilsner', child:'Pilsner'}],
     };
 
     componentDidMount(){

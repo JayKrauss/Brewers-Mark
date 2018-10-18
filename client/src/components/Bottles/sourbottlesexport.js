@@ -9,7 +9,7 @@ import beerAPI from '../../utils/beerAPI';
 class SourBottlesNav extends Component {
 
     state = {
-      bottles: [{title:'Fruited Sours', href:'/', parent:'Sour', child:'Ale'}, {title:'Berliner Sours',href:'/', parent:'Sour', child:'Berliner'}, {title:'Gose',href:'/', parent:'Sour', child:'Gose'}, {title:'Others',href:'/'}],
+      bottles: [{title:'Fruited Sours', href:'/', parent:'Sour', child:'Ale'}, {title:'Berliner Sours',href:'/', parent:'Sour', child:'Berliner'}, {title:'Gose',href:'/', parent:'Sour', child:'Gose'}],
     };
 
     componentDidMount(){
