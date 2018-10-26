@@ -23516,14 +23516,6 @@ mongoose.connect(
     "mongodb://localhost/brewersmarkbeers"
 );
 
-// $(document).ready(function () {
-
-//     $("#test").on("click", function () {
-//         console.log("clicky");
-//         console.log(trimmedBeers);
-//     });
-// });
-
 db.Beer
     .remove({})
     .then(() => db.Beer.collection.insertMany(trimmedBeers))
